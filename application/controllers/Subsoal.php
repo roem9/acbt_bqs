@@ -139,6 +139,11 @@ class Subsoal extends MY_Controller {
         echo json_encode($data);
     }
 
+    public function get_text_reading(){
+        $data = $this->subsoal->get_text_reading();
+        echo json_encode($data);
+    }
+
     public function input($id){
         $this->Main_model->delete_data("item_soal", ["id_sub" => $id]);
 
