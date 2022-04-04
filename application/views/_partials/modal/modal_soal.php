@@ -17,7 +17,7 @@
                             <option value="TOEFL">TOEFL</option>
                             <!-- <option value="TOAFL">TOAFL</option> -->
                             <option value="Latihan">Latihan</option>
-                            <option value="Placement Test">Placement Test</option>
+                            <!-- <option value="Placement Test">Placement Test</option> -->
                         </select>
                         <label for="">Tipe Soal</label>
                     </div>
@@ -64,7 +64,7 @@
                         <option value="TOEFL">TOEFL</option>
                         <!-- <option value="TOAFL">TOAFL</option> -->
                         <option value="Latihan">Latihan</option>
-                        <option value="Placement Test">Placement Test</option>
+                        <!-- <option value="Placement Test">Placement Test</option> -->
                     </select>
                     <label for="">Tipe Soal</label>
                 </div>

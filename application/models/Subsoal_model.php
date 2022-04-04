@@ -205,6 +205,12 @@ class Subsoal_model extends MY_Model {
                 "penulisan" => $this->input->post("penulisan"),
                 "id_text" => $this->input->post("id_text"),
             ];
+        } else if($item['item'] == "petunjuk"){
+            $data = [
+                "data" => $this->input->post("data_soal"),
+                "tampil" => $this->input->post("tampil"),
+                "penulisan" => $this->input->post("penulisan")
+            ];
         } else {
             $data = [
                 "data" => $this->input->post("data_soal"),
