@@ -47,6 +47,35 @@
                     <input type="text" name="language" class="form form-control required">
                     <label>Language</label>
                 </div>
+                <h3>Data Tes</h3>
+                <div class="form-floating mb-3">
+                    <input type="text" name="waktu_mulai" class="form form-control required" readonly>
+                    <label>Waktu Mulai</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="tgl_input" class="form form-control required" readonly>
+                    <label>Waktu Selesai</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="sisa_waktu_structure" class="form form-control required" readonly>
+                    <label>Sisa Waktu Structure</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="sisa_waktu_reading" class="form form-control required" readonly>
+                    <label>Sisa Waktu Reading</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="nilai_listening" class="form form-control required" readonly>
+                    <label>Jumlah Benar Soal Listening</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="nilai_structure" class="form form-control required" readonly>
+                    <label>Jumlah Benar Soal Strucutre</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="nilai_reading" class="form form-control required" readonly>
+                    <label>Jumlah Benar Soal Reading</label>
+                </div>
             </div>
             <div class="modal-footer">
                 <div class="d-flex justify-content-end">

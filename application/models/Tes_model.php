@@ -159,6 +159,7 @@ class Tes_model extends MY_Model {
     public function get_peserta_toefl(){
         $id = $this->input->post("id");
         $data = $this->get_one("peserta_toefl", ["id" => $id]);
+        $data['tgl_input'] = date("j/n/Y @ H:i:s", strtotime($data['tgl_input']));
         return $data;
     }
 

@@ -108,7 +108,11 @@ class Tes extends MY_Controller {
                                 ->setCellValue('L2', 'Nilai Reading')
                                 ->setCellValue('L3', 'Benar')
                                 ->setCellValue('M3', 'Skor')
-                                ->setCellValue('N2', 'SKOR TOEFL');
+                                ->setCellValue('N2', 'SKOR TOEFL')
+                                ->setCellValue('O2', 'Waktu Mulai')
+                                ->setCellValue('P2', 'Waktu Selesai')
+                                ->setCellValue('Q2', 'Sisa Waktu Structure')
+                                ->setCellValue('R2', 'Sisa Waktu Reading');
     
                     $spreadsheet->getActiveSheet()->mergeCells('A2:A3')
                                 ->mergeCells('B2:B3')
@@ -121,6 +125,10 @@ class Tes extends MY_Controller {
                                 ->mergeCells('J2:K2')
                                 ->mergeCells('L2:M2')
                                 ->mergeCells('N2:N3')
+                                ->mergeCells('O2:O3')
+                                ->mergeCells('P2:P3')
+                                ->mergeCells('Q2:Q3')
+                                ->mergeCells('R2:R3')
                                 ->mergeCells('A1:N1');
                     
                     $kolom = 4;
@@ -146,14 +154,18 @@ class Tes extends MY_Controller {
                                         ->setCellValue('K' . $kolom, poin("Structure", $peserta['nilai_structure']))
                                         ->setCellValue('L' . $kolom, $peserta['nilai_reading'])
                                         ->setCellValue('M' . $kolom, poin("Reading", $peserta['nilai_reading']))
-                                        ->setCellValue('N' . $kolom, skor($peserta['nilai_listening'], $peserta['nilai_structure'], $peserta['nilai_reading']));
+                                        ->setCellValue('N' . $kolom, skor($peserta['nilai_listening'], $peserta['nilai_structure'], $peserta['nilai_reading']))
+                                        ->setCellValue('O' . $kolom, $peserta['waktu_mulai'])
+                                        ->setCellValue('P' . $kolom, date("j/n/Y @ H:i:s", strtotime($peserta['tgl_input'])))
+                                        ->setCellValue('Q' . $kolom, $peserta['sisa_waktu_structure'])
+                                        ->setCellValue('R' . $kolom, $peserta['sisa_waktu_reading']);
             
                             $kolom++;
                             $nomor++;
             
                     }
 
-                    foreach(range('A','N') as $columnID) {
+                    foreach(range('A','R') as $columnID) {
                         $spreadsheet->getActiveSheet()->getColumnDimension($columnID)
                             ->setAutoSize(true);
                     }
