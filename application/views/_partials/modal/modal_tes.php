@@ -14,9 +14,9 @@
                     <div class="form-floating mb-3">
                         <select name="tipe_tes" class="form form-control required">
                             <option value="">Pilih Tipe Tes</option>
-                            <option value="Tes TOEFL Gratis (Tidak Bersertifikat)">Tes TOEFL Gratis (Tidak Bersertifikat)</option>
-                            <option value="Tes TOEFL (Bersertifikat)">Tes TOEFL (Bersertifikat)</option>
-                            <option value="Placement Test">Placement Test</option>
+                            <!-- <option value="Tes TOEFL Gratis (Tidak Bersertifikat)">Tes TOEFL Gratis (Tidak Bersertifikat)</option> -->
+                            <option value="Tes TOEFL (Bersertifikat)">Tes TOEFL</option>
+                            <!-- <option value="Placement Test">Placement Test</option> -->
                             <option value="Latihan Soal">Latihan Soal</option>
                         </select>
                         <label for="">Tipe Tes</label>
@@ -119,9 +119,9 @@
                 <div class="form-floating mb-3">
                     <select name="tipe_tes" class="form form-control required">
                         <option value="">Pilih Tipe Tes</option>
-                        <option value="Tes TOEFL Gratis (Tidak Bersertifikat)">Tes TOEFL Gratis (Tidak Bersertifikat)</option>
-                        <option value="Tes TOEFL (Bersertifikat)">Tes TOEFL (Bersertifikat)</option>
-                        <option value="Placement Test">Placement Test</option>
+                        <!-- <option value="Tes TOEFL Gratis (Tidak Bersertifikat)">Tes TOEFL Gratis (Tidak Bersertifikat)</option> -->
+                        <option value="Tes TOEFL (Bersertifikat)">Tes TOEFL</option>
+                        <!-- <option value="Placement Test">Placement Test</option> -->
                         <option value="Latihan Soal">Latihan Soal</option>
                     </select>
                     <label for="">Tipe Tes</label>
