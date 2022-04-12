@@ -137,7 +137,7 @@ class Tes extends MY_Controller {
                         $tahun = date('Y', strtotime($tes['tgl_tes']));
                         $bulan = date('m', strtotime($tes['tgl_tes']));
 
-                        if($peserta['no_doc'] != "") $no_doc = "{$peserta['no_doc']}/TFL/BKL/{$tahun}";
+                        if($peserta['no_doc'] != "") $no_doc = "{$peserta['no_doc']}/TOEFL/Digital/{$tahun}";
                         else $no_doc = "-";
 
                             $spreadsheet->setActiveSheetIndex(0)
@@ -293,7 +293,7 @@ class Tes extends MY_Controller {
 
         $skor = round($skor);
         
-        $peserta['no_doc'] = "{$peserta['no_doc']}/TFL/BKL/{$peserta['tahun']}";
+        $peserta['no_doc'] = "{$peserta['no_doc']}/TOEFL/Digital/{$peserta['tahun']}";
 
         $peserta['config'] = $this->tes->config();
         $peserta['id_tes'] = $peserta['id_tes'];
