@@ -144,6 +144,10 @@ $(document).on("click", "#addItem .btnNext", function(){
                     <textarea name="jawaban" class="form-control required" data-bs-toggle="autosize" placeholder="Type something…" readonly></textarea>
                     <label for="" class="col-form-label">Jawaban</label>
                 </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="waktu_soal" class="form-control">
+                    <label for="" class="col-form-label">Waktu Soal (detik)</label>
+                </div>
                 `+reading+`
                 `;
 
@@ -163,6 +167,10 @@ $(document).on("click", "#addItem .btnNext", function(){
                     <option value="Tidak">Tidak</option>
                 </select>
                 <label for="">Tampilkan Item Ini?</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" name="waktu_soal" class="form-control">
+                <label for="" class="col-form-label">Waktu Soal (detik)</label>
             </div>
             `;
 
@@ -320,6 +328,7 @@ $(document).on("click", "#addItem .btnAdd", function(){
                 let jawaban = $(form+" textarea[name='jawaban']").val();
                 let penulisan = $(form+" select[name='penulisan']").val();
                 let id_text = $(form+" select[name='id_text']").val();
+                let waktu_soal = $(form+" [name='waktu_soal']").val();
     
                 let eror = required(form);
     
@@ -333,7 +342,7 @@ $(document).on("click", "#addItem .btnAdd", function(){
                     })
                 } else {
                     let data_soal = `{"soal":"`+soal+`","pilihan":[`+pilihan+`],"jawaban":"`+jawaban+`"}`;
-                    let data = {id_sub:id_sub, tipe_soal:tipe_soal, item:item, data_soal:data_soal, penulisan:penulisan, id_text:id_text};
+                    let data = {id_sub:id_sub, tipe_soal:tipe_soal, item:item, data_soal:data_soal, penulisan:penulisan, id_text:id_text, waktu_soal:waktu_soal};
                     let result = ajax(url_base+"subsoal/add_item_soal", "POST", data);
                     if(result == 1){
                         Swal.fire({
@@ -375,6 +384,7 @@ $(document).on("click", "#addItem .btnAdd", function(){
                 soal = soal.replace(/"/g, "'");
                 let penulisan = $(form+" select[name='penulisan']").val();
                 let tampil = $(form+" select[name='tampil']").val();
+                let waktu_soal = $(form+" [name='waktu_soal']").val();
     
                 let eror = required(form);
     
@@ -387,7 +397,7 @@ $(document).on("click", "#addItem .btnAdd", function(){
                         text: 'lengkapi isi form terlebih dahulu'
                     })
                 } else {
-                    let data = {id_sub:id_sub, tipe_soal:tipe_soal, item:item, data_soal:soal, penulisan:penulisan, tampil:tampil};
+                    let data = {id_sub:id_sub, tipe_soal:tipe_soal, item:item, data_soal:soal, penulisan:penulisan, tampil:tampil, waktu_soal:waktu_soal};
                     let result = ajax(url_base+"subsoal/add_item_soal", "POST", data);
                     if(result == 1){
                         Swal.fire({
@@ -689,7 +699,12 @@ $(document).on("click", ".editItem", function(){
             <div class="form-floating mb-3">
                 <textarea name="jawaban" class="form-control required" data-bs-toggle="autosize" placeholder="Type something…" readonly>`+result.jawaban+`</textarea>
                 <label for="" class="col-form-label">Jawaban</label>
-            </div>`+reading;
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" name="waktu_soal" class="form-control" value="`+result.waktu_soal+`">
+                <label for="" class="col-form-label">Waktu Soal (detik)</label>
+            </div>
+            `+reading;
 
         
         $(form+" .modal-body").html(html);
@@ -728,6 +743,10 @@ $(document).on("click", ".editItem", function(){
                     <option value="Tidak" `+tidak+`>Tidak</option>
                 </select>
                 <label for="">Tampilkan Item Ini?</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" name="waktu_soal" class="form-control" value="`+result.waktu_soal+`">
+                <label for="" class="col-form-label">Waktu Soal (detik)</label>
             </div>
             `;
 
@@ -818,6 +837,7 @@ $(document).on("click", "#editItem .btnEdit", function(){
                 let jawaban = $(form+" textarea[name='jawaban']").val();
                 let penulisan = $(form+" select[name='penulisan']").val();
                 let id_text = $(form+" select[name='id_text']").val();
+                let waktu_soal = $(form+" [name='waktu_soal']").val();
     
                 let eror = required(form);
     
@@ -832,7 +852,7 @@ $(document).on("click", "#editItem .btnEdit", function(){
                 } else {
                     let data_soal = `{"soal":"`+soal+`","pilihan":[`+pilihan+`],"jawaban":"`+jawaban+`"}`;
                     // let data_soal = soal+"###"+pilihan_a+"///"+pilihan_b+"///"+pilihan_c+"///"+pilihan_d+"###"+jawaban
-                    let data = {id_item:id_item, data_soal:data_soal, penulisan:penulisan, id_text:id_text};
+                    let data = {id_item:id_item, data_soal:data_soal, penulisan:penulisan, id_text:id_text, waktu_soal:waktu_soal};
                     let result = ajax(url_base+"subsoal/edit_item_soal", "POST", data);
                     if(result == 1){
                         Swal.fire({
@@ -874,6 +894,7 @@ $(document).on("click", "#editItem .btnEdit", function(){
                 soal = soal.replace(/"/g, "'");
                 let penulisan = $(form+" select[name='penulisan']").val();
                 let tampil = $(form+" select[name='tampil']").val();
+                let waktu_soal = $(form+" [name='waktu_soal']").val();
     
                 let eror = required(form);
     
@@ -886,7 +907,7 @@ $(document).on("click", "#editItem .btnEdit", function(){
                         text: 'lengkapi isi form terlebih dahulu'
                     })
                 } else {
-                    let data = {id_item:id_item, data_soal:soal, penulisan:penulisan, tampil:tampil};
+                    let data = {id_item:id_item, data_soal:soal, penulisan:penulisan, tampil:tampil, waktu_soal:waktu_soal};
                     let result = ajax(url_base+"subsoal/edit_item_soal", "POST", data);
                     if(result == 1){
                         Swal.fire({

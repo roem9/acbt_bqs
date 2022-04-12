@@ -115,6 +115,7 @@ class Subsoal_model extends MY_Model {
                     "penulisan" => "LTR",
                     "urutan" => $urutan,
                     "tampil" => $this->input->post("tampil"),
+                    "waktu_soal" => $this->input->post("waktu_soal"),
                 ];
             } else {
                 $data = [
@@ -124,6 +125,7 @@ class Subsoal_model extends MY_Model {
                     "penulisan" => "LTR",
                     "urutan" => $urutan,
                     "id_text" => $this->input->post("id_text"),
+                    "waktu_soal" => $this->input->post("waktu_soal"),
                 ];
             }
     
@@ -204,12 +206,14 @@ class Subsoal_model extends MY_Model {
                 "data" => $this->input->post("data_soal"),
                 "penulisan" => $this->input->post("penulisan"),
                 "id_text" => $this->input->post("id_text"),
+                "waktu_soal" => $this->input->post("waktu_soal")
             ];
         } else if($item['item'] == "petunjuk"){
             $data = [
                 "data" => $this->input->post("data_soal"),
                 "tampil" => $this->input->post("tampil"),
-                "penulisan" => $this->input->post("penulisan")
+                "penulisan" => $this->input->post("penulisan"),
+                "waktu_soal" => $this->input->post("waktu_soal")
             ];
         } else {
             $data = [
