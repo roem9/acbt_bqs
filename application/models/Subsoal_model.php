@@ -164,11 +164,13 @@ class Subsoal_model extends MY_Model {
                 $data['item'][$i]['data']['pilihan'] = $txt_soal['pilihan'];
                 $data['item'][$i]['data']['jawaban'] = $txt_soal['jawaban'];
                 $data['item'][$i]['penulisan'] = $soal['penulisan'];
+                $data['item'][$i]['waktu_soal'] = $soal['waktu_soal'];
                 
                 $j++;
 
             } else if($soal['item'] == "petunjuk" || $soal['item'] == "audio" || $soal['item'] == "gambar"){
                 $data['item'][$i] = $soal;
+                $data['item'][$i]['waktu_soal'] = $soal['waktu_soal'];
             }
         }
 

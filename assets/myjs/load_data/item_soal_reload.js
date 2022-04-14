@@ -7,10 +7,11 @@ function load_item(id){
 
     html = ""
     // result = 1;
+    total = 0;
     if(result.item.length != 0) {
         result.item.forEach(data => {
             if(data.item == "soal"){
-                
+                total = parseInt(total) + parseInt(data.waktu_soal);
                 if(data.penulisan == "RTL"){
                     soal = `<div dir="rtl" class="mb-3">`+data.data.soal+`</div>`
                     // jawaban = `<div dir="rtl" class="mb-3 text-danger">`+data.data.jawaban+`</div>`
@@ -54,13 +55,29 @@ function load_item(id){
                     item = soal+pilihan;
                 }
 
+                waktu = `<p>
+                            Waktu Soal : `+data.waktu_soal+`
+                            Total Waktu : `+secondsToTime(total)+`
+                        </p>`
+                
+                item = item + waktu;
+
             } else if(data.item == "petunjuk"){
+                
+                total = parseInt(total) + parseInt(data.waktu_soal);
 
                 if(data.penulisan == "RTL"){
                     item = `<div dir="rtl" class="mb-3">`+data.data+`</div>`
                 } else {
                     item = `<div dir="ltr" class="mb-3">`+data.data+`</div>`
                 }
+
+                waktu = `<p>
+                            Waktu Soal : `+data.waktu_soal+`
+                            Total Waktu : `+secondsToTime(total)+`
+                        </p>`
+                
+                item = item + waktu;
 
             }
             else if(data.item == "audio"){
@@ -146,4 +163,12 @@ function load_item(id){
     }
 
     $("#dataAjax").html(html);
+}
+
+function secondsToTime(e){
+    var h = Math.floor(e / 3600).toString().padStart(2,'0'),
+        m = Math.floor(e % 3600 / 60).toString().padStart(2,'0'),
+        s = Math.floor(e % 60).toString().padStart(2,'0');
+    
+    return h + ':' + m + ':' + s;
 }
