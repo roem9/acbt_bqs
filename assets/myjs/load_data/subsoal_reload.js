@@ -34,8 +34,9 @@ var datatable = $('#dataTable').DataTable({
         $('td:eq(0)', row).html();
     },
     "columnDefs": [
-    { "searchable": false, "targets": "" },  // Disable search on first and last columns
-    { "targets": [4], "orderable": false},
+        { "searchable": false, "targets": "" },  // Disable search on first and last columns
+        { "targets": [4], "orderable": false},
+        { "targets": 3, "className" : "text-wrap"}
     ],
     "rowReorder": {
         "selector": 'td:nth-child(0)'
