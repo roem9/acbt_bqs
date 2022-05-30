@@ -88,91 +88,256 @@ $(document).on("click", "#addItem .btnNext", function(){
         if(item == "soal") {
             
             let id_sub = $(form+" input[name='id_sub']").val();
-            let reading = textReading(id_sub);
-
 
             count_choice = 4;
-            html += `
-                <div class="mb-3">
-                    <textarea name="soal" class='ckeditor' id='form-text'>{no}</textarea>
-                </div>
-                <div class="choice">
-                    <div class="form-floating mb-3">
-                        <textarea name="pilihan[]" class="form-control" data-bs-toggle="autosize" placeholder="Type something…"></textarea>
-                        <label for="" class="col-form-label">Pilihan A</label>
+
+            if(tipe_soal == "Listening"){
+                let reading = textReading(id_sub, "", "none");
+                
+                html += `
+                    <div class="mb-3">
+                        <textarea name="soal" class='ckeditor' id='form-text'>{no}</textarea>
+                    </div>
+                    <div class="choice">
+                        <div class="form-floating mb-3">
+                            <textarea name="pilihan[]" class="form-control" data-bs-toggle="autosize" placeholder="Type something…"></textarea>
+                            <label for="" class="col-form-label">Pilihan A</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <textarea name="pilihan[]" class="form-control" data-bs-toggle="autosize" placeholder="Type something…"></textarea>
+                            <label for="" class="col-form-label">Pilihan B</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <textarea name="pilihan[]" class="form-control" data-bs-toggle="autosize" placeholder="Type something…"></textarea>
+                            <label for="" class="col-form-label">Pilihan C</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <textarea name="pilihan[]" class="form-control" data-bs-toggle="autosize" placeholder="Type something…"></textarea>
+                            <label for="" class="col-form-label">Pilihan D</label>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center mb-3">
+                        <span>
+                            <button type="button" class="btn btn-sm btn-danger btnRemoveForm me-3">
+                                <svg width="24" height="24">
+                                    <use xlink:href="`+url_base+`assets/tabler-icons-1.39.1/tabler-sprite.svg#tabler-circle-minus" />
+                                </svg>
+                            </button>
+                        </span>
+                        <span>
+                            <button type="button" class="btn btn-sm btn-success btnAddForm">
+                                <svg width="24" height="24">
+                                    <use xlink:href="`+url_base+`assets/tabler-icons-1.39.1/tabler-sprite.svg#tabler-circle-plus" />
+                                </svg>
+                            </button>
+                        </span>
                     </div>
                     <div class="form-floating mb-3">
-                        <textarea name="pilihan[]" class="form-control" data-bs-toggle="autosize" placeholder="Type something…"></textarea>
-                        <label for="" class="col-form-label">Pilihan B</label>
+                        <select name="choice_jawaban" class="form-control required">
+                            <option value="">Pilih Jawaban</option>
+                            <option value="Pilihan A">Pilihan A</option>
+                            <option value="Pilihan B">Pilihan B</option>
+                            <option value="Pilihan C">Pilihan C</option>
+                            <option value="Pilihan D">Pilihan D</option>
+                        </select>
+                        <label for="">Pilih Jawaban</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <textarea name="pilihan[]" class="form-control" data-bs-toggle="autosize" placeholder="Type something…"></textarea>
-                        <label for="" class="col-form-label">Pilihan C</label>
+                        <textarea name="jawaban" class="form-control required" data-bs-toggle="autosize" placeholder="Type something…" readonly></textarea>
+                        <label for="" class="col-form-label">Jawaban</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <textarea name="pilihan[]" class="form-control" data-bs-toggle="autosize" placeholder="Type something…"></textarea>
-                        <label for="" class="col-form-label">Pilihan D</label>
+                        <input type="text" name="waktu_soal" class="form-control">
+                        <label for="" class="col-form-label">Waktu Soal (detik)</label>
                     </div>
-                </div>
-                <div class="d-flex justify-content-center mb-3">
-                    <span>
-                        <button type="button" class="btn btn-sm btn-danger btnRemoveForm me-3">
-                            <svg width="24" height="24">
-                                <use xlink:href="`+url_base+`assets/tabler-icons-1.39.1/tabler-sprite.svg#tabler-circle-minus" />
-                            </svg>
-                        </button>
-                    </span>
-                    <span>
-                        <button type="button" class="btn btn-sm btn-success btnAddForm">
-                            <svg width="24" height="24">
-                                <use xlink:href="`+url_base+`assets/tabler-icons-1.39.1/tabler-sprite.svg#tabler-circle-plus" />
-                            </svg>
-                        </button>
-                    </span>
-                </div>
-                <div class="form-floating mb-3">
-                    <select name="choice_jawaban" class="form-control required">
-                        <option value="">Pilih Jawaban</option>
-                        <option value="Pilihan A">Pilihan A</option>
-                        <option value="Pilihan B">Pilihan B</option>
-                        <option value="Pilihan C">Pilihan C</option>
-                        <option value="Pilihan D">Pilihan D</option>
-                    </select>
-                    <label for="">Pilih Jawaban</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <textarea name="jawaban" class="form-control required" data-bs-toggle="autosize" placeholder="Type something…" readonly></textarea>
-                    <label for="" class="col-form-label">Jawaban</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="text" name="waktu_soal" class="form-control">
-                    <label for="" class="col-form-label">Waktu Soal (detik)</label>
-                </div>
-                `+reading+`
+                    `+reading+`
                 `;
+            } else if(tipe_soal == "Structure"){
+                let reading = textReading(id_sub, "", "none");
+                
+                html += `
+                    <div class="mb-3">
+                        <textarea name="soal" class='ckeditor' id='form-text'>{no}</textarea>
+                    </div>
+                    <div class="choice">
+                        <div class="form-floating mb-3">
+                            <textarea name="pilihan[]" class="form-control" data-bs-toggle="autosize" placeholder="Type something…"></textarea>
+                            <label for="" class="col-form-label">Pilihan A</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <textarea name="pilihan[]" class="form-control" data-bs-toggle="autosize" placeholder="Type something…"></textarea>
+                            <label for="" class="col-form-label">Pilihan B</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <textarea name="pilihan[]" class="form-control" data-bs-toggle="autosize" placeholder="Type something…"></textarea>
+                            <label for="" class="col-form-label">Pilihan C</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <textarea name="pilihan[]" class="form-control" data-bs-toggle="autosize" placeholder="Type something…"></textarea>
+                            <label for="" class="col-form-label">Pilihan D</label>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center mb-3">
+                        <span>
+                            <button type="button" class="btn btn-sm btn-danger btnRemoveForm me-3">
+                                <svg width="24" height="24">
+                                    <use xlink:href="`+url_base+`assets/tabler-icons-1.39.1/tabler-sprite.svg#tabler-circle-minus" />
+                                </svg>
+                            </button>
+                        </span>
+                        <span>
+                            <button type="button" class="btn btn-sm btn-success btnAddForm">
+                                <svg width="24" height="24">
+                                    <use xlink:href="`+url_base+`assets/tabler-icons-1.39.1/tabler-sprite.svg#tabler-circle-plus" />
+                                </svg>
+                            </button>
+                        </span>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <select name="choice_jawaban" class="form-control required">
+                            <option value="">Pilih Jawaban</option>
+                            <option value="Pilihan A">Pilihan A</option>
+                            <option value="Pilihan B">Pilihan B</option>
+                            <option value="Pilihan C">Pilihan C</option>
+                            <option value="Pilihan D">Pilihan D</option>
+                        </select>
+                        <label for="">Pilih Jawaban</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <textarea name="jawaban" class="form-control required" data-bs-toggle="autosize" placeholder="Type something…" readonly></textarea>
+                        <label for="" class="col-form-label">Jawaban</label>
+                    </div>
+                    <div class="form-floating mb-3" style="display:none">
+                        <input type="text" name="waktu_soal" class="form-control">
+                        <label for="" class="col-form-label">Waktu Soal (detik)</label>
+                    </div>
+                    `+reading+`
+                `;
+            } else if(tipe_soal == "Reading"){
+                let reading = textReading(id_sub, "", "");
+                
+                html += `
+                    <div class="mb-3">
+                        <textarea name="soal" class='ckeditor' id='form-text'>{no}</textarea>
+                    </div>
+                    <div class="choice">
+                        <div class="form-floating mb-3">
+                            <textarea name="pilihan[]" class="form-control" data-bs-toggle="autosize" placeholder="Type something…"></textarea>
+                            <label for="" class="col-form-label">Pilihan A</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <textarea name="pilihan[]" class="form-control" data-bs-toggle="autosize" placeholder="Type something…"></textarea>
+                            <label for="" class="col-form-label">Pilihan B</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <textarea name="pilihan[]" class="form-control" data-bs-toggle="autosize" placeholder="Type something…"></textarea>
+                            <label for="" class="col-form-label">Pilihan C</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <textarea name="pilihan[]" class="form-control" data-bs-toggle="autosize" placeholder="Type something…"></textarea>
+                            <label for="" class="col-form-label">Pilihan D</label>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center mb-3">
+                        <span>
+                            <button type="button" class="btn btn-sm btn-danger btnRemoveForm me-3">
+                                <svg width="24" height="24">
+                                    <use xlink:href="`+url_base+`assets/tabler-icons-1.39.1/tabler-sprite.svg#tabler-circle-minus" />
+                                </svg>
+                            </button>
+                        </span>
+                        <span>
+                            <button type="button" class="btn btn-sm btn-success btnAddForm">
+                                <svg width="24" height="24">
+                                    <use xlink:href="`+url_base+`assets/tabler-icons-1.39.1/tabler-sprite.svg#tabler-circle-plus" />
+                                </svg>
+                            </button>
+                        </span>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <select name="choice_jawaban" class="form-control required">
+                            <option value="">Pilih Jawaban</option>
+                            <option value="Pilihan A">Pilihan A</option>
+                            <option value="Pilihan B">Pilihan B</option>
+                            <option value="Pilihan C">Pilihan C</option>
+                            <option value="Pilihan D">Pilihan D</option>
+                        </select>
+                        <label for="">Pilih Jawaban</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <textarea name="jawaban" class="form-control required" data-bs-toggle="autosize" placeholder="Type something…" readonly></textarea>
+                        <label for="" class="col-form-label">Jawaban</label>
+                    </div>
+                    <div class="form-floating mb-3" style="display:none">
+                        <input type="text" name="waktu_soal" class="form-control">
+                        <label for="" class="col-form-label">Waktu Soal (detik)</label>
+                    </div>
+                    `+reading+`
+                `;
+            }
 
             
             $(form+" .modal-body").html(html);
             CKEDITOR.replace('form-text');
 
         } else if(item == "petunjuk"){
-            html += `
-            <div class="mb-3">
-                <textarea name="soal" class='ckeditor' id='form-text'></textarea>
-            </div>
-            <div class="form-floating mb-3">
-                <select name="tampil" class="form-control required">
-                    <option value="">Pilih</option>
-                    <option value="Ya">Ya</option>
-                    <option value="Tidak">Tidak</option>
-                </select>
-                <label for="">Tampilkan Item Ini?</label>
-            </div>
-            <div class="form-floating mb-3">
-                <input type="text" name="waktu_soal" class="form-control">
-                <label for="" class="col-form-label">Waktu Soal (detik)</label>
-            </div>
-            `;
+
+            if(tipe_soal == "Listening"){
+                html += `
+                    <div class="mb-3">
+                        <textarea name="soal" class='ckeditor' id='form-text'></textarea>
+                    </div>
+                    <div class="form-floating mb-3" style="display:none">
+                        <select name="tampil" class="form-control">
+                            <option value="">Pilih</option>
+                            <option value="Ya">Ya</option>
+                            <option value="Tidak">Tidak</option>
+                        </select>
+                        <label for="">Tampilkan Item Ini?</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" name="waktu_soal" class="form-control">
+                        <label for="" class="col-form-label">Waktu Soal (detik)</label>
+                    </div>
+                `;
+            } else if(tipe_soal == "Structure"){
+                html += `
+                    <div class="mb-3">
+                        <textarea name="soal" class='ckeditor' id='form-text'></textarea>
+                    </div>
+                    <div class="form-floating mb-3" style="display:none">
+                        <select name="tampil" class="form-control">
+                            <option value="">Pilih</option>
+                            <option value="Ya">Ya</option>
+                            <option value="Tidak">Tidak</option>
+                        </select>
+                        <label for="">Tampilkan Item Ini?</label>
+                    </div>
+                    <div class="form-floating mb-3" style="display:none">
+                        <input type="text" name="waktu_soal" class="form-control">
+                        <label for="" class="col-form-label">Waktu Soal (detik)</label>
+                    </div>
+                `;
+            } else if(tipe_soal == "Reading"){
+                html += `
+                    <div class="mb-3">
+                        <textarea name="soal" class='ckeditor' id='form-text'></textarea>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <select name="tampil" class="form-control required">
+                            <option value="">Pilih</option>
+                            <option value="Ya">Ya</option>
+                            <option value="Tidak">Tidak</option>
+                        </select>
+                        <label for="">Tampilkan Item Ini?</label>
+                    </div>
+                    <div class="form-floating mb-3" style="display:none">
+                        <input type="text" name="waktu_soal" class="form-control">
+                        <label for="" class="col-form-label">Waktu Soal (detik)</label>
+                    </div>
+                `;
+            }
+            
 
             $(form+" .modal-body").html(html);
             CKEDITOR.replace('form-text');
@@ -665,47 +830,135 @@ $(document).on("click", ".editItem", function(){
         })
 
         let id_sub = $("#addItem [name='id_sub']").val()
-        let reading = textReading(id_sub, result.id_text);
 
-        html = `
-            <div class="mb-3">
-                <textarea name="soal" class='ckeditor' id='form-text-edit'>`+result.soal+`</textarea>
-            </div>
-            <div class="choice">
-                `+pilihan+`
-            </div>
-            <div class="d-flex justify-content-center mb-3">
-                <span>
-                    <button type="button" class="btn btn-sm btn-danger btnRemoveForm me-3">
-                        <svg width="24" height="24">
-                            <use xlink:href="`+url_base+`assets/tabler-icons-1.39.1/tabler-sprite.svg#tabler-circle-minus" />
-                        </svg>
-                    </button>
-                </span>
-                <span>
-                    <button type="button" class="btn btn-sm btn-success btnAddForm">
-                        <svg width="24" height="24">
-                            <use xlink:href="`+url_base+`assets/tabler-icons-1.39.1/tabler-sprite.svg#tabler-circle-plus" />
-                        </svg>
-                    </button>
-                </span>
-            </div>
-            <div class="form-floating mb-3">
-                <select name="choice_jawaban" class="form-control required">
-                    <option value="">Pilih Jawaban</option>
-                </select>
-                <label for="">Pilih Jawaban</label>
-            </div>
-            <div class="form-floating mb-3">
-                <textarea name="jawaban" class="form-control required" data-bs-toggle="autosize" placeholder="Type something…" readonly>`+result.jawaban+`</textarea>
-                <label for="" class="col-form-label">Jawaban</label>
-            </div>
-            <div class="form-floating mb-3">
-                <input type="text" name="waktu_soal" class="form-control" value="`+result.waktu_soal+`">
-                <label for="" class="col-form-label">Waktu Soal (detik)</label>
-            </div>
-            `+reading;
+        if(tipe_soal == "Listening"){
+            let reading = textReading(id_sub, result.id_text, "none");
 
+            html = `
+                <div class="mb-3">
+                    <textarea name="soal" class='ckeditor' id='form-text-edit'>`+result.soal+`</textarea>
+                </div>
+                <div class="choice">
+                    `+pilihan+`
+                </div>
+                <div class="d-flex justify-content-center mb-3">
+                    <span>
+                        <button type="button" class="btn btn-sm btn-danger btnRemoveForm me-3">
+                            <svg width="24" height="24">
+                                <use xlink:href="`+url_base+`assets/tabler-icons-1.39.1/tabler-sprite.svg#tabler-circle-minus" />
+                            </svg>
+                        </button>
+                    </span>
+                    <span>
+                        <button type="button" class="btn btn-sm btn-success btnAddForm">
+                            <svg width="24" height="24">
+                                <use xlink:href="`+url_base+`assets/tabler-icons-1.39.1/tabler-sprite.svg#tabler-circle-plus" />
+                            </svg>
+                        </button>
+                    </span>
+                </div>
+                <div class="form-floating mb-3">
+                    <select name="choice_jawaban" class="form-control required">
+                        <option value="">Pilih Jawaban</option>
+                    </select>
+                    <label for="">Pilih Jawaban</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <textarea name="jawaban" class="form-control required" data-bs-toggle="autosize" placeholder="Type something…" readonly>`+result.jawaban+`</textarea>
+                    <label for="" class="col-form-label">Jawaban</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="waktu_soal" class="form-control" value="`+result.waktu_soal+`">
+                    <label for="" class="col-form-label">Waktu Soal (detik)</label>
+                </div>
+                `+reading
+            ;
+        } else if(tipe_soal == "Structure"){
+            let reading = textReading(id_sub, result.id_text, "none");
+
+            html = `
+                <div class="mb-3">
+                    <textarea name="soal" class='ckeditor' id='form-text-edit'>`+result.soal+`</textarea>
+                </div>
+                <div class="choice">
+                    `+pilihan+`
+                </div>
+                <div class="d-flex justify-content-center mb-3">
+                    <span>
+                        <button type="button" class="btn btn-sm btn-danger btnRemoveForm me-3">
+                            <svg width="24" height="24">
+                                <use xlink:href="`+url_base+`assets/tabler-icons-1.39.1/tabler-sprite.svg#tabler-circle-minus" />
+                            </svg>
+                        </button>
+                    </span>
+                    <span>
+                        <button type="button" class="btn btn-sm btn-success btnAddForm">
+                            <svg width="24" height="24">
+                                <use xlink:href="`+url_base+`assets/tabler-icons-1.39.1/tabler-sprite.svg#tabler-circle-plus" />
+                            </svg>
+                        </button>
+                    </span>
+                </div>
+                <div class="form-floating mb-3">
+                    <select name="choice_jawaban" class="form-control required">
+                        <option value="">Pilih Jawaban</option>
+                    </select>
+                    <label for="">Pilih Jawaban</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <textarea name="jawaban" class="form-control required" data-bs-toggle="autosize" placeholder="Type something…" readonly>`+result.jawaban+`</textarea>
+                    <label for="" class="col-form-label">Jawaban</label>
+                </div>
+                <div class="form-floating mb-3" style="display:none">
+                    <input type="text" name="waktu_soal" class="form-control" value="`+result.waktu_soal+`">
+                    <label for="" class="col-form-label">Waktu Soal (detik)</label>
+                </div>
+                `+reading
+            ;
+
+        } else if(tipe_soal == "Reading"){
+            let reading = textReading(id_sub, result.id_text);
+
+            html = `
+                <div class="mb-3">
+                    <textarea name="soal" class='ckeditor' id='form-text-edit'>`+result.soal+`</textarea>
+                </div>
+                <div class="choice">
+                    `+pilihan+`
+                </div>
+                <div class="d-flex justify-content-center mb-3">
+                    <span>
+                        <button type="button" class="btn btn-sm btn-danger btnRemoveForm me-3">
+                            <svg width="24" height="24">
+                                <use xlink:href="`+url_base+`assets/tabler-icons-1.39.1/tabler-sprite.svg#tabler-circle-minus" />
+                            </svg>
+                        </button>
+                    </span>
+                    <span>
+                        <button type="button" class="btn btn-sm btn-success btnAddForm">
+                            <svg width="24" height="24">
+                                <use xlink:href="`+url_base+`assets/tabler-icons-1.39.1/tabler-sprite.svg#tabler-circle-plus" />
+                            </svg>
+                        </button>
+                    </span>
+                </div>
+                <div class="form-floating mb-3">
+                    <select name="choice_jawaban" class="form-control required">
+                        <option value="">Pilih Jawaban</option>
+                    </select>
+                    <label for="">Pilih Jawaban</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <textarea name="jawaban" class="form-control required" data-bs-toggle="autosize" placeholder="Type something…" readonly>`+result.jawaban+`</textarea>
+                    <label for="" class="col-form-label">Jawaban</label>
+                </div>
+                <div class="form-floating mb-3" style="display:none">
+                    <input type="text" name="waktu_soal" class="form-control" value="`+result.waktu_soal+`">
+                    <label for="" class="col-form-label">Waktu Soal (detik)</label>
+                </div>
+                `+reading
+            ;
+        }
         
         $(form+" .modal-body").html(html);
         $(form+" [name='choice_jawaban']").html(answer_choice);
@@ -732,23 +985,62 @@ $(document).on("click", ".editItem", function(){
             tidak = "selected"
         }
 
-        html = `
-            <div class="mb-3">
-                <textarea name="soal" class='ckeditor' id='form-text-edit'>`+result.data+`</textarea>
-            </div>
-            <div class="form-floating mb-3">
-                <select name="tampil" class="form-control required">
-                    <option value="">Pilih</option>
-                    <option value="Ya" `+ya+`>Ya</option>
-                    <option value="Tidak" `+tidak+`>Tidak</option>
-                </select>
-                <label for="">Tampilkan Item Ini?</label>
-            </div>
-            <div class="form-floating mb-3">
-                <input type="text" name="waktu_soal" class="form-control" value="`+result.waktu_soal+`">
-                <label for="" class="col-form-label">Waktu Soal (detik)</label>
-            </div>
+        if(tipe_soal == "Listening"){
+            html = `
+                <div class="mb-3">
+                    <textarea name="soal" class='ckeditor' id='form-text-edit'>`+result.data+`</textarea>
+                </div>
+                <div class="form-floating mb-3" style="display:none">
+                    <select name="tampil" class="form-control">
+                        <option value="">Pilih</option>
+                        <option value="Ya" `+ya+`>Ya</option>
+                        <option value="Tidak" `+tidak+`>Tidak</option>
+                    </select>
+                    <label for="">Tampilkan Item Ini?</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="waktu_soal" class="form-control" value="`+result.waktu_soal+`">
+                    <label for="" class="col-form-label">Waktu Soal (detik)</label>
+                </div>
             `;
+        } else if(tipe_soal == "Structure"){
+            html = `
+                <div class="mb-3">
+                    <textarea name="soal" class='ckeditor' id='form-text-edit'>`+result.data+`</textarea>
+                </div>
+                <div class="form-floating mb-3" style="display:none">
+                    <select name="tampil" class="form-control">
+                        <option value="">Pilih</option>
+                        <option value="Ya" `+ya+`>Ya</option>
+                        <option value="Tidak" `+tidak+`>Tidak</option>
+                    </select>
+                    <label for="">Tampilkan Item Ini?</label>
+                </div>
+                <div class="form-floating mb-3" style="display:none">
+                    <input type="text" name="waktu_soal" class="form-control" value="`+result.waktu_soal+`">
+                    <label for="" class="col-form-label">Waktu Soal (detik)</label>
+                </div>
+            `;
+        } else if(tipe_soal == "Reading"){
+            html = `
+                <div class="mb-3">
+                    <textarea name="soal" class='ckeditor' id='form-text-edit'>`+result.data+`</textarea>
+                </div>
+                <div class="form-floating mb-3">
+                    <select name="tampil" class="form-control required">
+                        <option value="">Pilih</option>
+                        <option value="Ya" `+ya+`>Ya</option>
+                        <option value="Tidak" `+tidak+`>Tidak</option>
+                    </select>
+                    <label for="">Tampilkan Item Ini?</label>
+                </div>
+                <div class="form-floating mb-3" style="display:none">
+                    <input type="text" name="waktu_soal" class="form-control" value="`+result.waktu_soal+`">
+                    <label for="" class="col-form-label">Waktu Soal (detik)</label>
+                </div>
+            `;
+        }
+        
 
         $(form+" .modal-body").html(html);
         CKEDITOR.replace('form-text-edit');
@@ -1021,11 +1313,11 @@ $(document).on("click", ".saveUrutan", function(){
     })
 })
 
-function textReading(id_sub, id_text = ""){
+function textReading(id_sub, id_text = "", display = ""){
     let result = ajax(url_base+"subsoal/get_text_reading", "POST", {id_sub:id_sub});
 
     html = `
-        <div class="form-floating mb-3">
+        <div class="form-floating mb-3" style="display:`+display+`">
             <select name="id_text" class="form-control">
                 <option value="0">Tidak Ada Text</option>
         `;

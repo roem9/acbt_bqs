@@ -12,6 +12,15 @@
                         <label for="">Tgl Pembuatan</label>
                     </div>
                     <div class="form-floating mb-3">
+                        <select name="tipe_soal" class="form form-control required">
+                            <option value="">Pilih Tipe Soal</option>
+                            <option value="Listening">Listening</option>
+                            <option value="Structure">Structure</option>
+                            <option value="Reading">Reading</option>
+                        </select>
+                        <label for="">Tipe Soal</label>
+                    </div>
+                    <div class="form-floating mb-3">
                         <input type="text" name="nama_sub" class="form form-control required">
                         <label for="">Nama Sub Soal</label>
                     </div>
@@ -43,6 +52,15 @@
                 <div class="form-floating mb-3">
                     <input type="date" name="tgl_pembuatan" class="form form-control required">
                     <label for="">Tgl Pembuatan</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <select name="tipe_soal" class="form form-control required">
+                        <option value="">Pilih Tipe Soal</option>
+                        <option value="Listening">Listening</option>
+                        <option value="Structure">Structure</option>
+                        <option value="Reading">Reading</option>
+                    </select>
+                    <label for="">Tipe Soal</label>
                 </div>
                 <div class="form-floating mb-3">
                     <input type="text" name="nama_sub" class="form form-control required">

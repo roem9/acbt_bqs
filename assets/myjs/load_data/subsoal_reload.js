@@ -15,6 +15,7 @@ var datatable = $('#dataTable').DataTable({
     ajax: {"url": url_base+"subsoal/loadsubsoal", "type": "POST"},
     columns: [
         {"data": "tgl_pembuatan"},
+        {"data": "tipe_soal"},
         {"data": "nama_sub"},
         {"data": "soal", render : function (data) {
             if(jQuery.browser.mobile == true) return data
@@ -35,8 +36,8 @@ var datatable = $('#dataTable').DataTable({
     },
     "columnDefs": [
         { "searchable": false, "targets": "" },  // Disable search on first and last columns
-        { "targets": [4], "orderable": false},
-        { "targets": 3, "className" : "text-wrap"}
+        { "targets": [5], "orderable": false},
+        { "targets": 4, "className" : "text-wrap"}
     ],
     "rowReorder": {
         "selector": 'td:nth-child(0)'

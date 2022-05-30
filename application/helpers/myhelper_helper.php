@@ -187,7 +187,7 @@
 
     function tablerIcon($icon, $margin = ""){
         return '
-            <svg width="24" height="24" class="alert-icon '.$margin.'">
+            <svg width="24" height="24" class="'.$margin.'">
                 <use xlink:href="'.base_url().'assets/tabler-icons-1.39.1/tabler-sprite.svg#tabler-'.$icon.'" />
             </svg>';
     }

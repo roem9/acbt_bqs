@@ -55,10 +55,14 @@ function load_item(id){
                     item = soal+pilihan;
                 }
 
-                waktu = `<p>
-                            Waktu Soal : `+data.waktu_soal+`
-                            Total Waktu : `+secondsToTime(total)+`
-                        </p>`
+                if(tipe_soal == "Listening"){
+                    waktu = `<p>
+                                Waktu Soal : `+data.waktu_soal+`
+                                Total Waktu : `+secondsToTime(total)+`
+                            </p>`
+                } else {
+                    waktu = "";
+                }
                 
                 item = item + waktu;
 
@@ -72,10 +76,14 @@ function load_item(id){
                     item = `<div dir="ltr" class="mb-3">`+data.data+`</div>`
                 }
 
-                waktu = `<p>
-                            Waktu Soal : `+data.waktu_soal+`
-                            Total Waktu : `+secondsToTime(total)+`
-                        </p>`
+                if(tipe_soal == "Listening"){
+                    waktu = `<p>
+                                Waktu Soal : `+data.waktu_soal+`
+                                Total Waktu : `+secondsToTime(total)+`
+                            </p>`
+                } else {
+                    waktu = "";
+                }
                 
                 item = item + waktu;
 

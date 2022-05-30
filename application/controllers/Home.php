@@ -10,46 +10,76 @@ class Home extends MY_Controller {
     {
         parent::__construct();
         $this->load->model('Main_model');
-        //Do your magic here
-        // if(!$this->session->userdata('toeflitp.id')){
-        //     $this->session->set_flashdata('pesan', '
-        //         <div class="alert alert-important alert-danger alert-dismissible" role="alert">
-        //             <div class="d-flex">
-        //                 <div>
-        //                     <svg width="24" height="24" class="alert-icon">
-        //                         <use xlink:href="'.base_url().'assets/tabler-icons-1.39.1/tabler-sprite.svg#tabler-alert-circle" />
-        //                     </svg>
-        //                 </div>
-        //                 <div>
-        //                     Anda harus login terlebih dahulu
-        //                 </div>
-        //             </div>
-        //             <a class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="close"></a>
-        //         </div>
-        //     ');
+    }
 
-		// 	redirect(base_url("auth"));
-		// }
+    // public function hapus_peserta(){
+    //     $tes = $this->Main_model->get_all("tes");
+
+    //     foreach ($tes as $tes) {
+    //         $peserta = COUNT($this->Main_model->get_all("peserta_toefl", ["id_tes" => $tes['id_tes']]));
+    //         if($peserta < 300){
+    //             $this->Main_model->delete_data("tes", ["id_tes" => $tes['id_tes']]);
+    //             $this->Main_model->delete_data("peserta_toefl", ["id_tes" => $tes['id_tes']]);
+    //         }
+    //     }
+
+    //     echo "cek";
+    // }
+
+    public function edit_peserta(){
+        $peserta = $this->Main_model->get_all("peserta_toefl");
+
+        foreach ($peserta as $i => $peserta) {
+            $data = [
+                "nama" => "Peserta ".$i,
+                "alamat" => "Alamat ".$i,
+                "email" => "email".$i."@gmail.com",
+                "no_wa" => "",
+            ];
+
+            $this->Main_model->edit_data("peserta_toefl", ["id" => $peserta['id']], $data);
+        }
+
+        echo "cek";
     }
 
     public function index(){
         // navbar and sidebar
-        $data['menu'] = "Dashboard";
+        $data['menu'] = "Home";
 
         // for title and header 
-        $data['title'] = "Dashboard";
+        $data['title'] = "Home";
 
         $data['modal'] = ["modal_setting"];
         // javascript 
         $data['js'] = [
             "modules/other.js",
             "modules/setting.js",
-            "load_data/reload_home.js",
         ];
         
-        $data['soal'] = COUNT($this->Main_model->get_all("soal", ["hapus" => 0]));
         $data['tes'] = COUNT($this->Main_model->get_all("tes", ["hapus" => 0]));
-        $data['peserta'] = COUNT($this->Main_model->get_all("peserta")) + COUNT($this->home->get_all("peserta_toefl"));
+        
+        $this->db->select("COUNT(id) as peserta");
+        $this->db->from("peserta_toefl");
+        $query = $this->db->get()->row_array();
+        $data['peserta'] = $query['peserta'];
+
+        $this->db->select("COUNT(id) as peserta");
+        $this->db->from("peserta_toefl");
+        $this->db->where("no_doc !=", "");
+        $query = $this->db->get()->row_array();
+        $data['sertifikat'] = $query['peserta'];
+
+        $data['label'] = [];
+        $tes = $this->Main_model->get_all("tes", ["hapus" => 0]);
+        foreach ($tes as $i => $tes) {
+            $data['label'][$i] = date("d-m-y", strtotime($tes['tgl_tes']));
+            $data['data'][$i] = COUNT($this->home->get_all("peserta_toefl", ["id_tes" => $tes['id_tes']]));
+        }
+
+        $data['label'] = json_encode($data['label']);
+        $data['data'] = json_encode($data['data']);
+        // var_dump($data);
 
         $this->load->view("pages/index", $data);
     }

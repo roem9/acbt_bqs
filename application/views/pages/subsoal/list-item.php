@@ -47,6 +47,7 @@
     
     <script>
         let id = "<?= $id?>";
+        let tipe_soal = "<?= $sub_soal['tipe_soal']?>";
     </script>
 
     <!-- load modal -->

@@ -20,7 +20,7 @@ class Auth extends CI_Controller {
             $cookie = get_cookie('toeflitp.id');
             // cek session
             if ($this->session->userdata('username')) {
-                redirect(base_url("tes"));
+                redirect(base_url("home"));
             } else if($cookie <> '') {
                 
                 $row = $this->Main_model->get_one("admin", ["cookie" => $cookie]);
@@ -106,7 +106,7 @@ class Auth extends CI_Controller {
 
         $this->session->set_userdata($sess);
         // 2. Redirect ke tes
-        redirect(base_url("tes"));
+        redirect(base_url("home"));
     }
 
     public function logout(){

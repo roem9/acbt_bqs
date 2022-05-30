@@ -15,13 +15,7 @@ var datatable = $('#dataTable').DataTable({
     ajax: {"url": url_base+"soal/loadSoal", "type": "POST"},
     columns: [
         {"data": "nama_soal"},
-        {"data": "tipe_soal"},
         {"data": "soal", render : function (data) {
-            if(jQuery.browser.mobile == true) return data
-            else return "<center>"+data+"</center>"
-        }},
-        {"data": "poin", render : function(data){
-            if(data == 0) data = "-"
             if(jQuery.browser.mobile == true) return data
             else return "<center>"+data+"</center>"
         }},
@@ -32,7 +26,7 @@ var datatable = $('#dataTable').DataTable({
             else return "<center>"+data+"</center>"
         }},
     ],
-    order: [[5, 'desc']],
+    order: [[3, 'desc']],
     rowCallback: function(row, data, iDisplayIndex) {
         var info = this.fnPagingInfo();
         var page = info.iPage;
@@ -41,7 +35,8 @@ var datatable = $('#dataTable').DataTable({
     },
     "columnDefs": [
     { "searchable": false, "targets": "" },  // Disable search on first and last columns
-    { "targets": [2, 6], "orderable": false},
+    { "targets": [2, 4], "orderable": false},
+    { "targets": 2, "className" : "text-wrap"}
     ],
     "rowReorder": {
         "selector": 'td:nth-child(0)'

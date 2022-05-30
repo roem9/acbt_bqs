@@ -38,9 +38,7 @@
                                 <thead>
                                     <tr>
                                         <th class="text-dark desktop mobile-l mobile-p tablet-l tablet-p" style="font-size: 11px">Nama Soal</th>
-                                        <th class="text-dark desktop" style="font-size: 11px">Tipe Soal</th>
                                         <th class="text-dark desktop w-1" style="font-size: 11px">Soal</th>
-                                        <th class="text-dark desktop w-1" style="font-size: 11px">Poin</th>
                                         <th class="text-dark desktop" style="font-size: 11px">Catatan</th>
                                         <th class="text-dark desktop w-1" style="font-size: 11px">Tgl Pembuatan</th>
                                         <th class="text-dark desktop w-1" style="font-size: 11px">Menu</th>

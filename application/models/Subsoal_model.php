@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Subsoal_model extends MY_Model {
 
     public function loadSubSoal(){
-        $this->datatables->select("id_sub, nama_sub, tgl_pembuatan, catatan, 
+        $this->datatables->select("id_sub, nama_sub, tgl_pembuatan, catatan, tipe_soal,
         (select count(id_item) from item_soal where a.id_sub = id_sub AND item = 'soal') as soal
         ");
         $this->datatables->from("sub_soal as a");

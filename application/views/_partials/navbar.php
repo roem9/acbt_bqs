@@ -3,7 +3,7 @@
         <div class="navbar navbar-light">
         <div class="container-xl">
             <ul class="navbar-nav">
-            <!-- <li class="nav-item"  id="Dashboard">
+            <li class="nav-item"  id="Dashboard">
                 <a class="nav-link" href="<?= base_url()?>home">
                 <span class="nav-link-icon d-md-none d-lg-inline-block">
                     <svg width="24" height="24">
@@ -14,7 +14,7 @@
                     Home
                 </span>
                 </a>
-            </li> -->
+            </li>
             <li class="nav-item"  id="Tes">
                 <a class="nav-link" href="<?= base_url()?>tes">
                 <span class="nav-link-icon d-md-none d-lg-inline-block">

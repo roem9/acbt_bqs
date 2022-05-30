@@ -15,9 +15,6 @@
                         <select name="tipe_tes" class="form form-control required">
                             <option value="">Pilih Tipe Tes</option>
                             <option value="Tes TOEFL Gratis (Tidak Bersertifikat)">Tes TOEFL</option>
-                            <!-- <option value="Tes TOEFL (Bersertifikat)">Tes TOEFL</option> -->
-                            <!-- <option value="Placement Test">Placement Test</option> -->
-                            <option value="Latihan Soal">Latihan Soal</option>
                         </select>
                         <label for="">Tipe Tes</label>
                     </div>
@@ -37,10 +34,6 @@
                             <?php endforeach;?>
                         </select>
                         <label for="id_soal_add">Soal</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="number" name="waktu" class="form form-control required">
-                        <label for="" class="col-form-label">Waktu (menit)</label>
                     </div>
                     <div class="form-floating mb-3">
                         <input type="text" name="password" class="form form-control required">
@@ -67,15 +60,9 @@
                         <textarea name="msg" class='ckeditor' id='form-text-add'></textarea>
                         <small class="mt-3">
                             <span class="text-danger">*BERIKUT CARA MENGGUNAKAN VARIABEL YANG BISA DITAMPILKAN PADA PESAN.</span> <br>
-                            <b>Tes Latihan : </b><br>
-                            $poin = total poin, $nama = nama, $email = email, $tes = Nama Tes, $tgl_tes = Tanggal Tes, $tgl_pengumuman = Tanggal Pengumuman <br><br>
-                            
-                            <b>Placement Test : </b><br>
-                            $poin = total poin, $nama = nama, $email = email, $tes = Nama Tes, $tgl_tes = Tanggal Tes, $tgl_pengumuman = Tanggal Pengumuman <br><br>
-
                             <b>Tes TOEFL : </b><br>
                             $nama = nama, $t4_lahir = Tempat Lahir, $tgl_lahir = Tgl Lahir, $alamat = Alamat, $no_wa = No. WA, $email = email, $jk = gende, $nilai_listening = Nilai Listening, $nilai_structure = Nilai Structure, $nilai_reading = Nilai Reading, $skor = Skor Tes,
-                            $tes = Nama Tes, $tgl_tes = Tanggal Tes, $tgl_pengumuman = Tanggal Pengumuman, $link = link order<br><br>
+                            $tes = Nama Tes, $tgl_tes = Tanggal Tes, $tgl_pengumuman = Tanggal Pengumuman<br><br>
                             <b>Contoh Pesan : </b><br>
                             Selamat Anda Telah Menyelesaikan $tes, Berikut Ini Data Diri Anda :<br>
                             Nama        : $nama<br>
@@ -87,7 +74,6 @@
                             Nilai Structure : $nilai_structure<br>
                             Nilai Reading   : $nilai_reading<br>
                             SKOR TOEFL      : $skor<br>
-                            Klik link berikut ini untuk order sertifikat $link
                         </small>
                     </div>
 
@@ -120,9 +106,6 @@
                     <select name="tipe_tes" class="form form-control required">
                         <option value="">Pilih Tipe Tes</option>
                         <option value="Tes TOEFL Gratis (Tidak Bersertifikat)">Tes TOEFL</option>
-                        <!-- <option value="Tes TOEFL (Bersertifikat)">Tes TOEFL</option> -->
-                        <!-- <option value="Placement Test">Placement Test</option> -->
-                        <option value="Latihan Soal">Latihan Soal</option>
                     </select>
                     <label for="">Tipe Tes</label>
                 </div>
@@ -142,10 +125,6 @@
                         <?php endforeach;?>
                     </select>
                     <label for="">Soal</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="number" name="waktu" class="form form-control required">
-                    <label for="" class="col-form-label">Waktu (menit)</label>
                 </div>
                 <div class="form-floating mb-3">
                     <input type="text" name="password" class="form form-control required">
@@ -172,15 +151,9 @@
                     <textarea name="msg" class='ckeditor' id='form-text-edit'></textarea>
                     <small class="mt-3">
                         <span class="text-danger">*BERIKUT CARA MENGGUNAKAN VARIABEL YANG BISA DITAMPILKAN PADA PESAN.</span> <br>
-                        <b>Tes Latihan : </b><br>
-                        $poin = total poin, $nama = nama, $email = email, $tes = Nama Tes, $tgl_tes = Tanggal Tes, $tgl_pengumuman = Tanggal Pengumuman <br><br>
-                        
-                        <b>Placement Test : </b><br>
-                        $poin = total poin, $nama = nama, $email = email, $tes = Nama Tes, $tgl_tes = Tanggal Tes, $tgl_pengumuman = Tanggal Pengumuman <br><br>
-
                         <b>Tes TOEFL : </b><br>
                         $nama = nama, $t4_lahir = Tempat Lahir, $tgl_lahir = Tgl Lahir, $alamat = Alamat, $no_wa = No. WA, $email = email, $jk = gende, $nilai_listening = Nilai Listening, $nilai_structure = Nilai Structure, $nilai_reading = Nilai Reading, $skor = Skor Tes,
-                        $tes = Nama Tes, $tgl_tes = Tanggal Tes, $tgl_pengumuman = Tanggal Pengumuman, $link = link order<br><br>
+                        $tes = Nama Tes, $tgl_tes = Tanggal Tes, $tgl_pengumuman = Tanggal Pengumuman<br><br>
                         <b>Contoh Pesan : </b><br>
                         Selamat Anda Telah Menyelesaikan $tes, Berikut Ini Data Diri Anda :<br>
                         Nama        : $nama<br>
@@ -192,7 +165,6 @@
                         Nilai Structure : $nilai_structure<br>
                         Nilai Reading   : $nilai_reading<br>
                         SKOR TOEFL      : $skor<br>
-                        Klik link berikut ini untuk order sertifikat $link
                     </small>
                 </div>
             </div>
