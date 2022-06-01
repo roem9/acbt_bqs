@@ -201,7 +201,7 @@ $("#editLogo .btnUpload").click(function(){
 
                 let eror = required(form);
 
-                loading();
+                // loading();
 
                 if( eror == 1){
                     Swal.fire({
