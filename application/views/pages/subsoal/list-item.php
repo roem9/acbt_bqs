@@ -33,7 +33,6 @@
             </div>
             <div class="page-body">
                 <div class="container-xl">
-                    
                     <div class="row row-cards FieldContainer" data-masonry='{"percentPosition": true }' id="dataAjax">
                         
                     </div>

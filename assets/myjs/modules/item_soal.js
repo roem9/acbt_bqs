@@ -1337,4 +1337,17 @@ function textReading(id_sub, id_text = "", display = ""){
     return html
 }
 
+$(document).on("click", ".btnPlay", function(){
+    let total = $(this).data("total");
+    let range = $(this).data("range");
 
+    var vid = document.getElementById("audioPlayer");
+    vid.currentTime = total;
+    vid.play();
+
+    range = (parseInt(range) + 1) * 1000;
+
+    setTimeout(function () {
+        vid.pause();
+    }, range)
+})

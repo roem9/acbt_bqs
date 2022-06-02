@@ -11,6 +11,7 @@ function load_item(id){
     if(result.item.length != 0) {
         result.item.forEach(data => {
             if(data.item == "soal"){
+                data_total = total;
                 total = parseInt(total) + parseInt(data.waktu_soal);
                 if(data.penulisan == "RTL"){
                     soal = `<div dir="rtl" class="mb-3">`+data.data.soal+`</div>`
@@ -56,10 +57,15 @@ function load_item(id){
                 }
 
                 if(tipe_soal == "Listening"){
-                    waktu = `<p>
+                    waktu = `
+                            <p>
                                 Waktu Soal : `+data.waktu_soal+`
                                 Total Waktu : `+secondsToTime(total)+`
-                            </p>`
+                            </p>
+                            <a href="javascript:void(0)" class="btn btn-sm btn-success btnPlay" data-total="`+data_total+`" data-range="`+total+`">
+                                Play
+                            </a>
+                            `
                 } else {
                     waktu = "";
                 }
@@ -68,6 +74,7 @@ function load_item(id){
 
             } else if(data.item == "petunjuk"){
                 
+                data_total = total;
                 total = parseInt(total) + parseInt(data.waktu_soal);
 
                 if(data.penulisan == "RTL"){
@@ -80,7 +87,11 @@ function load_item(id){
                     waktu = `<p>
                                 Waktu Soal : `+data.waktu_soal+`
                                 Total Waktu : `+secondsToTime(total)+`
-                            </p>`
+                            </p>
+                            <a href="javascript:void(0)" class="btn btn-sm btn-success btnPlay" data-total="`+data_total+`" data-range="`+total+`">
+                                Play
+                            </a>
+                            `
                 } else {
                     waktu = "";
                 }
@@ -90,7 +101,7 @@ function load_item(id){
             }
             else if(data.item == "audio"){
 
-                item = `<center><audio controls controlsList="nodownload"><source src="`+url_base+`assets/myaudio/`+data.data+`?t=`+Math.random()+`" type='audio/mpeg'></audio></center>`
+                item = `<center><audio controls controlsList="nodownload" id="audioPlayer"><source src="`+url_base+`assets/myaudio/`+data.data+`?t=`+Math.random()+`" type='audio/mpeg'></audio></center>`
 
             } else if(data.item == "gambar"){
 
