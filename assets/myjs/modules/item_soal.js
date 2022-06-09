@@ -287,14 +287,7 @@ $(document).on("click", "#addItem .btnNext", function(){
                     <div class="mb-3">
                         <textarea name="soal" class='ckeditor' id='form-text'></textarea>
                     </div>
-                    <div class="form-floating mb-3" style="display:none">
-                        <select name="tampil" class="form-control">
-                            <option value="">Pilih</option>
-                            <option value="Ya">Ya</option>
-                            <option value="Tidak">Tidak</option>
-                        </select>
-                        <label for="">Tampilkan Item Ini?</label>
-                    </div>
+                    <input type="hidden" name="tampil" value="Ya">
                     <div class="form-floating mb-3">
                         <input type="text" name="waktu_soal" class="form-control">
                         <label for="" class="col-form-label">Waktu Soal (detik)</label>
@@ -305,14 +298,7 @@ $(document).on("click", "#addItem .btnNext", function(){
                     <div class="mb-3">
                         <textarea name="soal" class='ckeditor' id='form-text'></textarea>
                     </div>
-                    <div class="form-floating mb-3" style="display:none">
-                        <select name="tampil" class="form-control">
-                            <option value="">Pilih</option>
-                            <option value="Ya">Ya</option>
-                            <option value="Tidak">Tidak</option>
-                        </select>
-                        <label for="">Tampilkan Item Ini?</label>
-                    </div>
+                    <input type="hidden" name="tampil" value="Ya">
                     <div class="form-floating mb-3" style="display:none">
                         <input type="text" name="waktu_soal" class="form-control">
                         <label for="" class="col-form-label">Waktu Soal (detik)</label>
@@ -990,14 +976,7 @@ $(document).on("click", ".editItem", function(){
                 <div class="mb-3">
                     <textarea name="soal" class='ckeditor' id='form-text-edit'>`+result.data+`</textarea>
                 </div>
-                <div class="form-floating mb-3" style="display:none">
-                    <select name="tampil" class="form-control">
-                        <option value="">Pilih</option>
-                        <option value="Ya" `+ya+`>Ya</option>
-                        <option value="Tidak" `+tidak+`>Tidak</option>
-                    </select>
-                    <label for="">Tampilkan Item Ini?</label>
-                </div>
+                <input type="hidden" name="tampil" value="Ya">
                 <div class="form-floating mb-3">
                     <input type="text" name="waktu_soal" class="form-control" value="`+result.waktu_soal+`">
                     <label for="" class="col-form-label">Waktu Soal (detik)</label>
@@ -1008,14 +987,7 @@ $(document).on("click", ".editItem", function(){
                 <div class="mb-3">
                     <textarea name="soal" class='ckeditor' id='form-text-edit'>`+result.data+`</textarea>
                 </div>
-                <div class="form-floating mb-3" style="display:none">
-                    <select name="tampil" class="form-control">
-                        <option value="">Pilih</option>
-                        <option value="Ya" `+ya+`>Ya</option>
-                        <option value="Tidak" `+tidak+`>Tidak</option>
-                    </select>
-                    <label for="">Tampilkan Item Ini?</label>
-                </div>
+                <input type="hidden" name="tampil" value="Ya">
                 <div class="form-floating mb-3" style="display:none">
                     <input type="text" name="waktu_soal" class="form-control" value="`+result.waktu_soal+`">
                     <label for="" class="col-form-label">Waktu Soal (detik)</label>
