@@ -55,6 +55,14 @@
             <div class="modal-body">
                 <input type="hidden" name="id_soal" class="form">
                 <div class="form-floating mb-3">
+                    <select name="status" class="form form-control required">
+                        <option value="">Pilih Status Soal</option>
+                        <option value="Process">Process</option>
+                        <option value="Ready">Ready</option>
+                    </select>
+                    <label for="">Status Soal</label>
+                </div>
+                <div class="form-floating mb-3">
                     <input type="date" name="tgl_pembuatan" class="form form-control required">
                     <label for="">Tgl Pembuatan</label>
                 </div>

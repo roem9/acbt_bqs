@@ -13,48 +13,91 @@ function load_item(id){
             if(data.item == "soal"){
                 data_total = total;
                 total = parseInt(total) + parseInt(data.waktu_soal);
-                if(data.penulisan == "RTL"){
-                    soal = `<div dir="rtl" class="mb-3">`+data.data.soal+`</div>`
-                    // jawaban = `<div dir="rtl" class="mb-3 text-danger">`+data.data.jawaban+`</div>`
-                    pilihan = "";
-                    data.data.pilihan.forEach(data_pilihan => {
-                        if(data_pilihan == data.data.jawaban) checked = "checked";
-                        else checked = "disabled"
-                        pilihan += `
-                            <div class="mb-3">
-                                <div class="form-check">
-                                    <div class="text-right" dir="rtl">
-                                        <label>
-                                            <input type="radio" `+checked+`>
-                                            <span>`+data_pilihan+`</span>
-                                        </label>
+                
+                soal = `<div class="mb-3">`+data.data.soal+`</div>`
+                // jawaban = `<div class="mb-3 text-danger">`+data.data.jawaban+`</div>`
+                pilihan = "";
+                data.data.pilihan.forEach(data_pilihan => {
+                    if(data_pilihan == data.data.jawaban) checked = "checked";
+                    else checked = "disabled"
+                    pilihan += `
+                        <div class="mb-3">
+                            <div class="form-check p-0">
+                                <label>
+                                    <input type="radio" `+checked+`>
+                                    <span>`+data_pilihan+`</span>
+                                </label>
+                            </div>
+                        </div>`
+                });
+                // item = soal+pilihan+jawaban;
+
+                    pembahasan = `
+                        <div class="accordion" id="accordion-example">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#benar`+data.id_item+`" aria-expanded="false">
+                                    Pembahasan Jawaban Benar
+                                    </button>
+                                </h2>
+                                <div id="benar`+data.id_item+`" class="accordion-collapse collapse" data-bs-parent="#accordion-example">
+                                    <div class="accordion-body pt-0">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#salah`+data.id_item+`" aria-expanded="false">
+                                    Pembahasan Jawaban Salah
+                                    </button>
+                                </h2>
+                                <div id="salah`+data.id_item+`" class="accordion-collapse collapse" data-bs-parent="#accordion-example">
+                                    <div class="accordion-body pt-0">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>`
+
+                    if(data.pembahasan_benar != "") 
+                        pembahasan_benar = `
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#benar`+data.id_item+`" aria-expanded="false">
+                                    Pembahasan Jawaban Benar
+                                    </button>
+                                </h2>
+                                <div id="benar`+data.id_item+`" class="accordion-collapse collapse" data-bs-parent="#accordion-example">
+                                    <div class="accordion-body pt-0">
+                                        `+data.pembahasan_benar+`
                                     </div>
                                 </div>
                             </div>`
-                    });
-    
-                    // item = soal+pilihan+jawaban;
-                    item = soal+pilihan;
-                } else {
-                    soal = `<div class="mb-3">`+data.data.soal+`</div>`
-                    // jawaban = `<div class="mb-3 text-danger">`+data.data.jawaban+`</div>`
-                    pilihan = "";
-                    data.data.pilihan.forEach(data_pilihan => {
-                        if(data_pilihan == data.data.jawaban) checked = "checked";
-                        else checked = "disabled"
-                        pilihan += `
-                            <div class="mb-3">
-                                <div class="form-check p-0">
-                                    <label>
-                                        <input type="radio" `+checked+`>
-                                        <span>`+data_pilihan+`</span>
-                                    </label>
+                    else pembahasan_benar = ``;
+
+                    if(data.pembahasan_salah != "") 
+                        pembahasan_salah = `
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#salah`+data.id_item+`" aria-expanded="false">
+                                    Pembahasan Jawaban Salah
+                                    </button>
+                                </h2>
+                                <div id="salah`+data.id_item+`" class="accordion-collapse collapse" data-bs-parent="#accordion-example">
+                                    <div class="accordion-body pt-0">
+                                        `+data.pembahasan_salah+`
+                                    </div>
                                 </div>
                             </div>`
-                    });
+                    else pembahasan_salah = ``;
+
+                    pembahasan = `
+                        <div class="accordion" id="accordion-example">
+                            `+pembahasan_benar+`
+                            `+pembahasan_salah+`
+                        </div>`
+
                     // item = soal+pilihan+jawaban;
-                    item = soal+pilihan;
-                }
+                    item = soal+pilihan+pembahasan;
 
                 if(tipe_soal == "Listening"){
                     waktu = `

@@ -94,6 +94,18 @@ class Soal extends MY_Controller {
                     $data['sesi'][$i]['soal'][$j]['data']['pilihan'] = $txt_soal['pilihan'];
                     $data['sesi'][$i]['soal'][$j]['data']['jawaban'] = $txt_soal['jawaban'];
                     $data['sesi'][$i]['soal'][$j]['penulisan'] = $soal['penulisan'];
+
+                    if(isset($txt_soal['pembahasan_benar'])){
+                        $data['sesi'][$i]['soal'][$j]['data']['pembahasan_benar'] = $txt_soal['pembahasan_benar'];
+                    } else {
+                        $data['sesi'][$i]['soal'][$j]['data']['pembahasan_benar'] = "";
+                    }
+        
+                    if(isset($txt_soal['pembahasan_salah'])){
+                        $data['sesi'][$i]['soal'][$j]['data']['pembahasan_salah'] = $txt_soal['pembahasan_salah'];
+                    } else {
+                        $data['sesi'][$i]['soal'][$j]['data']['pembahasan_salah'] = "";
+                    }
                     
                     $number++;
 

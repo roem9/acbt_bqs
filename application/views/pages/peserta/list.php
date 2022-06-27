@@ -16,12 +16,12 @@
                         </div>
                         <div class="col-auto ms-auto d-print-none">
                             <div class="btn-list">
-                            <a href="#" class="btn btn-primary d-none d-sm-inline-block" data-bs-toggle="modal" data-bs-target="#addSoal">
+                            <a href="#" class="btn btn-primary d-none d-sm-inline-block" data-bs-toggle="modal" data-bs-target="#addPeserta">
                                 <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>
-                                Tambahkan Soal
+                                Tambahkan Peserta
                             </a>
-                            <a href="#" class="btn btn-primary d-sm-none btn-icon" data-bs-toggle="modal" data-bs-target="#addSoal" aria-label="Create new report">
+                            <a href="#" class="btn btn-primary d-sm-none btn-icon" data-bs-toggle="modal" data-bs-target="#addPeserta" aria-label="Create new report">
                                 <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>
                             </a>
@@ -34,14 +34,15 @@
                 <div class="container-xl">
                     <div class="card shadow mb-4">
                         <div class="card-body">
-                            <table id="dataTable" class="table card-table table-vcenter text-nowrap text-dark">
+                            <table id="dataTable" class="responsive table card-table table-vcenter text-nowrap text-dark">
                                 <thead>
                                     <tr>
-                                        <th class="text-dark desktop mobile-l mobile-p tablet-l tablet-p" style="font-size: 11px">Status</th>
-                                        <th class="text-dark desktop mobile-l mobile-p tablet-l tablet-p" style="font-size: 11px">Nama Soal</th>
-                                        <th class="text-dark desktop w-1" style="font-size: 11px">Soal</th>
-                                        <th class="text-dark desktop" style="font-size: 11px">Catatan</th>
-                                        <th class="text-dark desktop w-1" style="font-size: 11px">Tgl Pembuatan</th>
+                                        <th class="text-dark desktop mobile-l mobile-p tablet-l tablet-p w-1" style="font-size: 11px">Tgl Daftar</th>
+                                        <th class="text-dark desktop mobile-l mobile-p tablet-l tablet-p" style="font-size: 11px">Nama Peserta</th>
+                                        <th class="text-dark desktop" style="font-size: 11px">No. HP</th>
+                                        <th class="text-dark desktop" style="font-size: 11px">Email</th>
+                                        <th class="text-dark desktop" style="font-size: 11px">Tampilan Soal</th>
+                                        <th class="text-dark desktop" style="font-size: 11px">Jumlah Tes</th>
                                         <th class="text-dark desktop w-1" style="font-size: 11px">Menu</th>
                                     </tr>
                                 </thead>
@@ -65,7 +66,7 @@
     ?>
 
     <script>
-        $("#Soal").addClass("active")
+        $("#Peserta").addClass("active")
     </script>
 
     <!-- load javascript -->

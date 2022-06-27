@@ -293,7 +293,7 @@ class Tes extends MY_Controller {
 
         $skor = round($skor);
         
-        $peserta['no_doc'] = "{$peserta['no_doc']}/TOEFL/Digital/{$peserta['tahun']}";
+        $peserta['no_doc'] = "RLE/TP-P/{$peserta['tahun']}/{$peserta['bulan']}/{$peserta['no_doc']}";
 
         $peserta['config'] = $this->tes->config();
         $peserta['id_tes'] = $peserta['id_tes'];
@@ -325,6 +325,12 @@ class Tes extends MY_Controller {
                 ],
                 'montserrat' => [
                     'R' => 'Montserrat-Regular.ttf',
+                ],
+                'times' => [
+                    'R' => 'timesbd.ttf',
+                ],
+                'oleo' => [
+                    'R' => 'OleoScript-Bold.ttf',
                 ]
             ], 
         ]);

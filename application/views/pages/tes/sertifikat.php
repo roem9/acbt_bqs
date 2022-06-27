@@ -44,11 +44,21 @@
         }
 
         .qrcode{
-            width: 210px;
+            /* width: 210px; */
 			position: absolute;
-            left: 150px;
-			bottom: 80px;
+            right: 77px;
+			top: 69px;
             font-size: 35px;
+            word-spacing: 3px;
+        }
+
+        .scan{
+            /* background-color: red; */
+            /* width: 210px; */
+			position: absolute;
+            right: 93px;
+			top: 187px;
+            font-size: 10px;
             word-spacing: 3px;
         }
 
@@ -56,12 +66,12 @@
             /* background-color: red; */
             width: 95px;
 			position: absolute;
-            left: 683px;
-			top: 565px;
+            left: 643px;
+			top: 504px;
             font-size: 20px;
-            font-family: 'montserrat';
+            font-family: 'times';
             word-spacing: 5px;
-            color: #6a7b83;
+            /* color: #6a7b83; */
             font-weight: bold;
         }
 
@@ -70,11 +80,11 @@
             width: 95px;
 			position: absolute;
             left: 345px;
-			top: 565px;
+			top: 479px;
             font-size: 20px;
-            font-family: 'montserrat';
+            font-family: 'times';
             /* word-spacing: 3px; */
-            color: #6a7b83;
+            /* color: #6a7b83; */
             font-weight: bold;
         }
 
@@ -83,24 +93,24 @@
             width: 1000px;
 			position: absolute;
             left: 63px;
-			top: 339px;
-            font-size: 39px;
+			top: 245px;
+            font-size: 50px;
             /* font-family: 'rockb'; */
-            font-family: 'montserrat';
+            font-family: 'times';
             word-spacing: 3px;
-            color: #013e58;
         }
 
         .ttl{
             /* background-color: red; */
             width: 250px;
 			position: absolute;
-            left: 540px;
-			bottom: 147px;
-            font-size: 17px;
-            font-family: 'montserrat';
+            left: 539px;
+			/* bottom: 242px; */
+			bottom: 219px;
+            font-size: 18px;
+            font-family: 'times';
             word-spacing: 3px;
-            color: #6a7b83;
+            /* color: #6a7b83; */
         }
 
         .t4{
@@ -119,60 +129,64 @@
             /* background-color: red; */
             width: 95px;
 			position: absolute;
-            left: 683px;
-			top: 493px;
+            left: 643px;
+			/* top: 493px; */
+			/* top: 397px; */
+			top: 420px;
             font-size: 18px;
-            font-family: 'montserrat';
+            font-family: 'times';
             word-spacing: 3px;
-            color: #6a7b83;
+            /* color: #6a7b83; */
         }
         
         .structure{
             /* background-color: red; */
             width: 95px;
 			position: absolute;
-            left: 683px;
-			top: 517px;
+            left: 643px;
+			/* top: 517px; */
+			top: 448px;
             font-size: 18px;
-            font-family: 'montserrat';
+            font-family: 'times';
             word-spacing: 3px;
-            color: #6a7b83;
+            /* color: #6a7b83; */
         }
         
         .reading{
             /* background-color: red; */
             width: 95px;
 			position: absolute;
-            left: 683px;
-			top: 541px;
+            left: 643px;
+			/* top: 541px; */
+			top: 477px;
             font-size: 18px;
-            font-family: 'montserrat';
+            font-family: 'times';
             word-spacing: 3px;
-            color: #6a7b83;
+            /* color: #6a7b83; */
         }
 
         .tgl{
             /* background-color: red; */
             width: 250px;
 			position: absolute;
-            left: 205px;
-			bottom: 37px;
+            left: 310px;
+			bottom: 171px;
             font-size: 16px;
-            font-family: 'montserrat';
+            font-family: 'times';
             word-spacing: 3px;
-            color: #6a7b83;
+            /* color: #6a7b83; */
         }
 
         .no_doc{
             /* background-color: red; */
             width: 250px;
 			position: absolute;
-            left: 283px;
-			bottom: 19px;
+            left: 310px;
+			bottom: 147px;
             font-size: 16px;
-            font-family: 'montserrat';
+            font-family: 'times';
             word-spacing: 3px;
-            color: #6a7b83;
+            /* color: #6a7b83; */
         }
 
         .gender{
@@ -225,19 +239,14 @@
         <div class="qrcode">
             <img src="<?= base_url()?>assets/qrcode/<?= $id?>.png" width=120 alt="">
         </div>
-        <div class="total">Total</div>
+        <div class="scan"><center>scan for validation</center></div>
         <div class="nilai"><p style="text-align: right; margin: 0px"><?= round($skor)?></p></div>
         <div class="nama"><p style="text-align: center; margin: 0px"><b><?= $nama?></b></p></div>
         <div class="ttl"><p style="text-align: left; margin: 0px"><?= tgl_sertifikat(date("d-m-Y", strtotime($tgl_lahir)))?></p></div>
-        <!-- <div class="t4"><p style="text-align: center; margin: 0px;"><?= $t4_lahir?></p></div> -->
-        <!-- <div class="gender"><p style="text-align: center; margin: 0px"><?= $jk?></p></div> -->
-        <!-- <div class="country"><p style="text-align: center; margin: 0px"><?= $country?></p></div> -->
-        <!-- <div class="language"><p style="text-align: center; margin: 0px"><?= $language?></p></div> -->
-        <div class="listening"><p style="text-align: right; margin: 0px"><?= $listening?></p></div>
-        <div class="structure"><p style="text-align: right; margin: 0px"><?= $structure?></p></div>
-        <div class="reading"><p style="text-align: right; margin: 0px"><?= $reading?></p></div>
-        <div class="no_doc"><p style="text-align: left; margin: 0px"><?= $no_doc?></p></div>
-        <div class="tgl"><p style="text-align: left; margin: 0px"><?= tgl_sertifikat(date("d-m-Y", strtotime($tgl_tes)))?></p></div>
-        <!-- <div class="tgl_akhir"><p style="text-align: center; margin: 0px"><?= tgl_sertifikat(date("d-m-Y", strtotime('+2 years', strtotime($tgl_tes))))?></p></div> -->
+        <div class="listening"><p style="text-align: right; margin: 0px"><b><?= $listening?></b></p></div>
+        <div class="structure"><p style="text-align: right; margin: 0px"><b><?= $structure?></b></p></div>
+        <div class="reading"><p style="text-align: right; margin: 0px"><b><?= $reading?></b></p></div>
+        <div class="no_doc"><p style="text-align: left; margin: 0px"><b><?= $no_doc?></b></p></div>
+        <div class="tgl"><p style="text-align: left; margin: 0px"><b><?= tgl_sertifikat(date("d-m-Y", strtotime($tgl_tes)))?></b></p></div>
     </body>
 </html>

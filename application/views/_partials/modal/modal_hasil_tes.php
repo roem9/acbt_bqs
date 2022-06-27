@@ -56,14 +56,14 @@
                     <input type="text" name="tgl_input" class="form form-control required" readonly>
                     <label>Waktu Selesai</label>
                 </div>
-                <div class="form-floating mb-3">
+                <!-- <div class="form-floating mb-3">
                     <input type="text" name="sisa_waktu_structure" class="form form-control required" readonly>
                     <label>Sisa Waktu Structure</label>
                 </div>
                 <div class="form-floating mb-3">
                     <input type="text" name="sisa_waktu_reading" class="form form-control required" readonly>
                     <label>Sisa Waktu Reading</label>
-                </div>
+                </div> -->
                 <div class="form-floating mb-3">
                     <input type="text" name="nilai_listening" class="form form-control required" readonly>
                     <label>Jumlah Benar Soal Listening</label>

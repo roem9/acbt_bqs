@@ -1,3 +1,11 @@
+$(".btnAddTes").click(function(){
+    $("#formAddTes").trigger("reset");
+
+    $("#formAddTes input:radio[value='Training V1']").prop('checked',false);
+    $("#formAddTes input:radio[value='Training V2']").prop('checked',false);
+    $("#formAddTes input:radio[value='TOEFL ITP']").prop('checked',false);
+})
+
 // tambah tes baru
 $("#addTes .btnTambah").click(function(){
     Swal.fire({
@@ -60,6 +68,12 @@ $("#addTes .btnTambah").click(function(){
 
 // get data tes ketika edit
 $(document).on("click",".editTes", function(){
+    $("#editTes").trigger("reset");
+    
+    $("input:radio[value='Training V1']").prop('checked',false);
+    $("input:radio[value='Training V2']").prop('checked',false);
+    $("input:radio[value='TOEFL ITP']").prop('checked',false);
+
     let form = "#editTes";
     let id_tes = $(this).data("id");
 
@@ -73,6 +87,14 @@ $(document).on("click",".editTes", function(){
     })
 
     CKEDITOR.instances['form-text-edit'].setData(result.msg)
+
+    if(result.tampilan_soal == "Training V1"){
+        $("input:radio[value='Training V1']").prop('checked',true);
+    } else if(result.tampilan_soal == "Training V2") {
+        $("input:radio[value='Training V2']").prop('checked',true);
+    } else if(result.tampilan_soal == "TOEFL ITP"){
+        $("input:radio[value='TOEFL ITP']").prop('checked',true);
+    }
 })
 
 // menyimpan hasil edit data
@@ -285,4 +307,9 @@ $("#uploadGambar .btnTambah").click(function(){
             timer: 1500
         })
     }
+});
+
+$('input:radio').click(function () {
+    let value = $(this).val();
+    $("[name='tampilan_soal']").val(value);
 });

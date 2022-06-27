@@ -12,22 +12,17 @@ var datatable = $('#dataTable').DataTable({
     },
     processing: true,
     serverSide: true,
-    ajax: {"url": url_base+"soal/loadSoal", "type": "POST"},
+    ajax: {"url": url_base+"peserta/loadPeserta", "type": "POST"},
     columns: [
-        {"data": "status"},
-        {"data": "nama_soal"},
-        {"data": "soal", render : function (data) {
-            if(jQuery.browser.mobile == true) return data
-            else return "<center>"+data+"</center>"
-        }},
-        {"data": "catatan"},
-        {"data": "tgl_pembuatan"},
-        {"data": "action", render : function (data) {
-            if(jQuery.browser.mobile == true) return data
-            else return "<center>"+data+"</center>"
-        }},
+        {"data": "tgl_input"},
+        {"data": "nama_peserta"},
+        {"data": "no_hp"},
+        {"data": "email"},
+        {"data": "tampilan_soal"},
+        {"data": "jumlah_tes"},
+        {"data": "action"},
     ],
-    order: [[4, 'desc']],
+    order: [[1, 'desc']],
     rowCallback: function(row, data, iDisplayIndex) {
         var info = this.fnPagingInfo();
         var page = info.iPage;
@@ -36,11 +31,10 @@ var datatable = $('#dataTable').DataTable({
     },
     "columnDefs": [
     { "searchable": false, "targets": "" },  // Disable search on first and last columns
-    { "targets": [2, 4], "orderable": false},
-    { "targets": 2, "className" : "text-wrap"}
+    { "targets": [4], "orderable": false},
     ],
     "rowReorder": {
         "selector": 'td:nth-child(0)'
     },
-    "responsive": true,
+    "responsive": true
 });

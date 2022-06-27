@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Soal_model extends MY_Model {
     public function loadSoal(){
-        $this->datatables->select("id_soal, nama_soal, catatan, tgl_pembuatan, tipe_soal, poin");
+        $this->datatables->select("id_soal, nama_soal, catatan, tgl_pembuatan, tipe_soal, poin, status");
         $this->datatables->from("soal as a");
         $this->datatables->where("a.hapus", 0);
         $this->datatables->add_column('action','

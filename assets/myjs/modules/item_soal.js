@@ -90,6 +90,17 @@ $(document).on("click", "#addItem .btnNext", function(){
             let id_sub = $(form+" input[name='id_sub']").val();
 
             count_choice = 4;
+            
+            let pembahasan = `
+                <div class="mb-3">
+                    <label class="mb-3">Pembahasan Jika Jawaban Benar</label>
+                    <textarea name="pembahasan_benar" class='ckeditor' id='form-text-benar'></textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="mb-3">Pembahasan Jika Jawaban Salah</label>
+                    <textarea name="pembahasan_salah" class='ckeditor' id='form-text-salah'></textarea>
+                </div>
+            `;
 
             if(tipe_soal == "Listening"){
                 let reading = textReading(id_sub, "", "none");
@@ -151,6 +162,7 @@ $(document).on("click", "#addItem .btnNext", function(){
                         <label for="" class="col-form-label">Waktu Soal (detik)</label>
                     </div>
                     `+reading+`
+                    `+pembahasan+`
                 `;
             } else if(tipe_soal == "Structure"){
                 let reading = textReading(id_sub, "", "none");
@@ -212,6 +224,7 @@ $(document).on("click", "#addItem .btnNext", function(){
                         <label for="" class="col-form-label">Waktu Soal (detik)</label>
                     </div>
                     `+reading+`
+                    `+pembahasan+`
                 `;
             } else if(tipe_soal == "Reading"){
                 let reading = textReading(id_sub, "", "");
@@ -273,12 +286,17 @@ $(document).on("click", "#addItem .btnNext", function(){
                         <label for="" class="col-form-label">Waktu Soal (detik)</label>
                     </div>
                     `+reading+`
+                    `+pembahasan+`
                 `;
             }
 
             
             $(form+" .modal-body").html(html);
             CKEDITOR.replace('form-text');
+            
+            // pembahasan
+            CKEDITOR.replace('form-text-benar');
+            CKEDITOR.replace('form-text-salah');
 
         } else if(item == "petunjuk"){
 
@@ -465,6 +483,13 @@ $(document).on("click", "#addItem .btnAdd", function(){
                 let tipe_soal = $(form+" input[name='tipe_soal']").val();
                 let soal = CKEDITOR.instances['form-text'].getData();
                 soal = soal.replace(/"/g, "'");
+
+                // pembahasan 
+                let pembahasan_benar = CKEDITOR.instances['form-text-benar'].getData();
+                pembahasan_benar = pembahasan_benar.replace(/"/g, "'");
+                let pembahasan_salah = CKEDITOR.instances['form-text-salah'].getData();
+                pembahasan_salah = pembahasan_salah.replace(/"/g, "'");
+
                 let pilihan = "";
 
                 $(form+" [name='pilihan[]']").each(function(){
@@ -492,7 +517,12 @@ $(document).on("click", "#addItem .btnAdd", function(){
                         text: 'lengkapi isi form terlebih dahulu'
                     })
                 } else {
-                    let data_soal = `{"soal":"`+soal+`","pilihan":[`+pilihan+`],"jawaban":"`+jawaban+`"}`;
+                    // tanpa pembahasan
+                    // let data_soal = `{"soal":"`+soal+`","pilihan":[`+pilihan+`],"jawaban":"`+jawaban+`"}`;
+
+                    // pembahasan
+                    let data_soal = `{"soal":"`+soal+`","pilihan":[`+pilihan+`],"jawaban":"`+jawaban+`","pembahasan_benar":"`+pembahasan_benar+`","pembahasan_salah":"`+pembahasan_salah+`"}`;
+                    
                     let data = {id_sub:id_sub, tipe_soal:tipe_soal, item:item, data_soal:data_soal, penulisan:penulisan, id_text:id_text, waktu_soal:waktu_soal};
                     let result = ajax(url_base+"subsoal/add_item_soal", "POST", data);
                     if(result == 1){
@@ -817,6 +847,17 @@ $(document).on("click", ".editItem", function(){
 
         let id_sub = $("#addItem [name='id_sub']").val()
 
+        // pembahasan
+        pembahasan = `
+            <div class="mb-3">
+                <label class="mb-3">Pembahasan Jika Jawaban Benar</label>
+                <textarea name="pembahasan_benar" class='ckeditor' id='form-text-edit-benar'>`+result.pembahasan_benar+`</textarea>
+            </div>
+            <div class="mb-3">
+                <label class="mb-3">Pembahasan Jika Jawaban Salah</label>
+                <textarea name="pembahasan_salah" class='ckeditor' id='form-text-edit-salah'>`+result.pembahasan_salah+`</textarea>
+            </div>`;
+        
         if(tipe_soal == "Listening"){
             let reading = textReading(id_sub, result.id_text, "none");
 
@@ -857,7 +898,7 @@ $(document).on("click", ".editItem", function(){
                     <input type="text" name="waktu_soal" class="form-control" value="`+result.waktu_soal+`">
                     <label for="" class="col-form-label">Waktu Soal (detik)</label>
                 </div>
-                `+reading
+                `+reading+``+pembahasan+``
             ;
         } else if(tipe_soal == "Structure"){
             let reading = textReading(id_sub, result.id_text, "none");
@@ -899,7 +940,7 @@ $(document).on("click", ".editItem", function(){
                     <input type="text" name="waktu_soal" class="form-control" value="`+result.waktu_soal+`">
                     <label for="" class="col-form-label">Waktu Soal (detik)</label>
                 </div>
-                `+reading
+                `+reading+``+pembahasan+``
             ;
 
         } else if(tipe_soal == "Reading"){
@@ -942,13 +983,15 @@ $(document).on("click", ".editItem", function(){
                     <input type="text" name="waktu_soal" class="form-control" value="`+result.waktu_soal+`">
                     <label for="" class="col-form-label">Waktu Soal (detik)</label>
                 </div>
-                `+reading
+                `+reading+``+pembahasan+``
             ;
         }
         
         $(form+" .modal-body").html(html);
         $(form+" [name='choice_jawaban']").html(answer_choice);
         CKEDITOR.replace('form-text-edit');
+        CKEDITOR.replace('form-text-edit-benar');
+        CKEDITOR.replace('form-text-edit-salah');
 
     } else if(result.item == "petunjuk"){
         if(result.penulisan == "RTL") {
@@ -1089,6 +1132,12 @@ $(document).on("click", "#editItem .btnEdit", function(){
                 let soal = CKEDITOR.instances['form-text-edit'].getData();
                 soal = soal.replace(/"/g, "'");
                 
+                // pembahasan
+                let pembahasan_benar = CKEDITOR.instances['form-text-edit-benar'].getData();
+                pembahasan_benar = pembahasan_benar.replace(/"/g, "'");
+                let pembahasan_salah = CKEDITOR.instances['form-text-edit-salah'].getData();
+                pembahasan_salah = pembahasan_salah.replace(/"/g, "'");
+
                 let pilihan = "";
                 $(form+" [name='pilihan[]']").each(function(){
                     if($(this).val() != ""){
@@ -1114,7 +1163,11 @@ $(document).on("click", "#editItem .btnEdit", function(){
                         text: 'lengkapi isi form terlebih dahulu'
                     })
                 } else {
-                    let data_soal = `{"soal":"`+soal+`","pilihan":[`+pilihan+`],"jawaban":"`+jawaban+`"}`;
+                    // tanpa pembahasan 
+                    // let data_soal = `{"soal":"`+soal+`","pilihan":[`+pilihan+`],"jawaban":"`+jawaban+`"}`;
+
+                    // pembahasan
+                    let data_soal = `{"soal":"`+soal+`","pilihan":[`+pilihan+`],"jawaban":"`+jawaban+`","pembahasan_benar":"`+pembahasan_benar+`","pembahasan_salah":"`+pembahasan_salah+`"}`;
                     // let data_soal = soal+"###"+pilihan_a+"///"+pilihan_b+"///"+pilihan_c+"///"+pilihan_d+"###"+jawaban
                     let data = {id_item:id_item, data_soal:data_soal, penulisan:penulisan, id_text:id_text, waktu_soal:waktu_soal};
                     let result = ajax(url_base+"subsoal/edit_item_soal", "POST", data);

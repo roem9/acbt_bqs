@@ -165,6 +165,19 @@ class Subsoal_model extends MY_Model {
                 $data['item'][$i]['data']['jawaban'] = $txt_soal['jawaban'];
                 $data['item'][$i]['penulisan'] = $soal['penulisan'];
                 $data['item'][$i]['waktu_soal'] = $soal['waktu_soal'];
+
+                // pembahasan 
+                if(isset($txt_soal['pembahasan_benar'])){
+                    $data['item'][$i]['pembahasan_benar'] = $txt_soal['pembahasan_benar'];
+                } else {
+                    $data['item'][$i]['pembahasan_benar'] = "";
+                }
+    
+                if(isset($txt_soal['pembahasan_salah'])){
+                    $data['item'][$i]['pembahasan_salah'] = $txt_soal['pembahasan_salah'];
+                } else {
+                    $data['item'][$i]['pembahasan_salah'] = "";
+                }
                 
                 $j++;
 
@@ -177,6 +190,29 @@ class Subsoal_model extends MY_Model {
         return $data;
     }
 
+    // tanpa pembahasan 
+    // public function get_item_soal(){
+    //     $id_item = $this->input->post("id_item");
+
+    //     $item = $this->Main_model->get_one("item_soal", ["id_item" => $id_item]);
+        
+    //     if($item['item'] == "soal"){
+    //         $data = $item;
+
+    //         $string = trim(preg_replace('/\s+/', ' ', $item['data']));
+    //         $item = json_decode($string, true );
+
+    //         $data['soal'] = $item['soal'];
+    //         $data['pilihan'] = $item['pilihan'];
+    //         $data['jawaban'] = $item['jawaban'];
+    //     } else if($item['item'] == "petunjuk" || $item['item'] == "audio"){
+    //         $data = $item;
+    //     }
+
+    //     return $data;
+    // }
+
+    // pembahasan
     public function get_item_soal(){
         $id_item = $this->input->post("id_item");
 
@@ -191,6 +227,19 @@ class Subsoal_model extends MY_Model {
             $data['soal'] = $item['soal'];
             $data['pilihan'] = $item['pilihan'];
             $data['jawaban'] = $item['jawaban'];
+            
+            if(isset($item['pembahasan_benar'])){
+                $data['pembahasan_benar'] = $item['pembahasan_benar'];
+            } else {
+                $data['pembahasan_benar'] = "";
+            }
+
+            if(isset($item['pembahasan_salah'])){
+                $data['pembahasan_salah'] = $item['pembahasan_salah'];
+            } else {
+                $data['pembahasan_salah'] = "";
+            }
+
         } else if($item['item'] == "petunjuk" || $item['item'] == "audio"){
             $data = $item;
         }

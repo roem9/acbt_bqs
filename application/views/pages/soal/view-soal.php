@@ -40,41 +40,87 @@
                                             $item = "";
                                             ?>
                                             <?php if($data['item'] == "soal") :?>
-                                                <?php if($data['penulisan'] == "RTL") :?>
-                                                    <?php $soal = '<div dir="rtl" class="mb-3">'.$data['data']['soal'].'</div>' ?>
-                                                    <input type="hidden" name="jawaban_sesi_<?= $index?>[]" data-id="soal-<?= $i?>" id="jawaban_sesi_<?= $index?><?= $i?>" value="null">
-                                                    <?php $pilihan = "";?>
-                                                    <?php foreach ($data['data']['pilihan'] as $k => $choice) :?>
-                                                        <?php if($choice == $data['data']['jawaban']) $checked = "checked"; else $checked = "disabled";?>
-                                                        <?php $pilihan .= '
-                                                            <div class="mb-3">
-                                                                <div class="form-check">
-                                                                    <div class="text-right" dir="rtl">
-                                                                        <label>
-                                                                            <input type="radio" data-id="'.$index.'|'.$i.'"  name="radio-'.$index.'['.$i.']" value="'.$choice.'" '.$checked.'> 
-                                                                            '.$choice.'
-                                                                        </label>
+                                                
+                                                <?php $soal = '<div class="mb-3">'.$data['data']['soal'].'</div>' ?>
+                                                <input type="hidden" name="jawaban_sesi_<?= $index?>[]" data-id="soal-<?= $i?>" id="jawaban_sesi_<?= $index?><?= $i?>" value="null">
+                                                <?php $pilihan = "";?>
+                                                <?php foreach ($data['data']['pilihan'] as $k => $choice) :?>
+                                                    <?php if($choice == $data['data']['jawaban']) $checked = "checked"; else $checked = "disabled";?>
+                                                    <?php $pilihan .= '
+                                                        <div class="mb-3">
+                                                            <label>
+                                                                <input type="radio" data-id="'.$index.'|'.$i.'"  name="radio-'.$index.'['.$i.']" value="'.$choice.'" '.$checked.'> 
+                                                                <span>'.$choice.'</span>
+                                                            </label>
+                                                        </div>' ?>
+                                                <?php endforeach;?>
+                                                <?php
+                                                    $pembahasan = '
+                                                        <div class="accordion" id="accordion-example">
+                                                            <div class="accordion-item">
+                                                                <h2 class="accordion-header">
+                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#benar'.$data['id_item'].'" aria-expanded="false">
+                                                                    Pembahasan Jawaban Benar
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="benar'.$data['id_item'].'" class="accordion-collapse collapse" data-bs-parent="#accordion-example">
+                                                                    <div class="accordion-body pt-0">
                                                                     </div>
                                                                 </div>
-                                                            </div>' ?>
-                                                    <?php endforeach;?>
-                                                    <?php $item = $soal.$pilihan;?>
-                                                <?php else :?>
-                                                    <?php $soal = '<div class="mb-3">'.$data['data']['soal'].'</div>' ?>
-                                                    <input type="hidden" name="jawaban_sesi_<?= $index?>[]" data-id="soal-<?= $i?>" id="jawaban_sesi_<?= $index?><?= $i?>" value="null">
-                                                    <?php $pilihan = "";?>
-                                                    <?php foreach ($data['data']['pilihan'] as $k => $choice) :?>
-                                                        <?php if($choice == $data['data']['jawaban']) $checked = "checked"; else $checked = "disabled";?>
-                                                        <?php $pilihan .= '
-                                                            <div class="mb-3">
-                                                                <label>
-                                                                    <input type="radio" data-id="'.$index.'|'.$i.'"  name="radio-'.$index.'['.$i.']" value="'.$choice.'" '.$checked.'> 
-                                                                    <span>'.$choice.'</span>
-                                                                </label>
-                                                            </div>' ?>
-                                                    <?php endforeach;?>
-                                                    <?php $item = $soal.$pilihan;?>
-                                                <?php endif;?>
+                                                            </div>
+                                                            <div class="accordion-item">
+                                                                <h2 class="accordion-header">
+                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#salah'.$data['id_item'].'" aria-expanded="false">
+                                                                    Pembahasan Jawaban Salah
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="salah'.$data['id_item'].'" class="accordion-collapse collapse" data-bs-parent="#accordion-example">
+                                                                    <div class="accordion-body pt-0">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>';
+                                
+                                                    if($data['data']['pembahasan_benar'] != "") 
+                                                        $pembahasan_benar = '
+                                                            <div class="accordion-item">
+                                                                <h2 class="accordion-header">
+                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#benar'.$data['id_item'].'" aria-expanded="false">
+                                                                    Pembahasan Jawaban Benar
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="benar'.$data['id_item'].'" class="accordion-collapse collapse" data-bs-parent="#accordion-example">
+                                                                    <div class="accordion-body pt-0">
+                                                                        '.$data['data']['pembahasan_benar'].'
+                                                                    </div>
+                                                                </div>
+                                                            </div>';
+                                                    else $pembahasan_benar = '';
+                                
+                                                    if($data['data']['pembahasan_salah'] != "") 
+                                                        $pembahasan_salah = '
+                                                            <div class="accordion-item">
+                                                                <h2 class="accordion-header">
+                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#salah'.$data['id_item'].'" aria-expanded="false">
+                                                                    Pembahasan Jawaban Salah
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="salah'.$data['id_item'].'" class="accordion-collapse collapse" data-bs-parent="#accordion-example">
+                                                                    <div class="accordion-body pt-0">
+                                                                        '.$data['data']['pembahasan_salah'].'
+                                                                    </div>
+                                                                </div>
+                                                            </div>';
+                                                    else $pembahasan_salah = '';
+                                
+                                                    $pembahasan = '
+                                                        <div class="accordion" id="accordion-example">
+                                                            '.$pembahasan_benar.'
+                                                            '.$pembahasan_salah.'
+                                                        </div>';
+                                                ?>
+                                                <?php $item = $soal.$pilihan.$pembahasan;?>
+
                                             <?php elseif($data['item'] == "petunjuk") :
                                                     if($data['penulisan'] == "RTL"){
                                                         $item = '<div dir="rtl" class="mb-3">'.$data['data'].'</div>';

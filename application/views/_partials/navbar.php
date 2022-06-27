@@ -27,6 +27,18 @@
                 </span>
                 </a>
             </li>
+            <li class="nav-item"  id="Peserta">
+                <a class="nav-link" href="<?= base_url()?>peserta">
+                <span class="nav-link-icon d-md-none d-lg-inline-block">
+                    <svg width="24" height="24">
+                        <use xlink:href="<?= base_url()?>assets/tabler-icons-1.39.1/tabler-sprite.svg#tabler-users" />
+                    </svg>
+                </span>
+                <span class="nav-link-title">
+                    Peserta
+                </span>
+                </a>
+            </li>
             <li class="nav-item"  id="Soal">
                 <a class="nav-link" href="<?= base_url()?>soal">
                 <span class="nav-link-icon d-md-none d-lg-inline-block">
