@@ -494,7 +494,11 @@ $(document).on("click", "#addItem .btnAdd", function(){
 
                 $(form+" [name='pilihan[]']").each(function(){
                     if($(this).val() != ""){
-                        pilihan += `"`+$(this).val()+`",`;
+                        // tambahan
+                        pilihan_jawaban = $(this).val().replace(/"/g, "&quot;")
+                        pilihan += `"`+pilihan_jawaban+`",`;
+                        // tambahan
+                        // pilihan += `"`+$(this).val()+`",`;
                     }
                 });
 
@@ -502,6 +506,9 @@ $(document).on("click", "#addItem .btnAdd", function(){
                 pilihan = pilihan.slice(0, -1)
 
                 let jawaban = $(form+" textarea[name='jawaban']").val();
+                // tambahan
+                jawaban = jawaban.replace(/"/g, "&quot;");
+                // tambahan
                 let penulisan = $(form+" select[name='penulisan']").val();
                 let id_text = $(form+" select[name='id_text']").val();
                 let waktu_soal = $(form+" [name='waktu_soal']").val();
@@ -1140,14 +1147,19 @@ $(document).on("click", "#editItem .btnEdit", function(){
 
                 let pilihan = "";
                 $(form+" [name='pilihan[]']").each(function(){
-                    if($(this).val() != ""){
-                        pilihan += `"`+$(this).val()+`",`;
-                    }
+                    // tambahan
+                    pilihan_jawaban = $(this).val().replace(/"/g, "&quot;")
+                    pilihan += `"`+pilihan_jawaban+`",`;
+                    // tambahan
+                    // pilihan += `"`+$(this).val()+`",`;
                 });
                 // remove last character 
                 pilihan = pilihan.slice(0, -1)
 
                 let jawaban = $(form+" textarea[name='jawaban']").val();
+                // tambahan
+                jawaban = jawaban.replace(/"/g, "&quot;");
+                // tambahan
                 let penulisan = $(form+" select[name='penulisan']").val();
                 let id_text = $(form+" select[name='id_text']").val();
                 let waktu_soal = $(form+" [name='waktu_soal']").val();
