@@ -46,11 +46,13 @@
         .qrcode{
             /* width: 210px; */
 			position: absolute;
-            right: 454px;
+            /* right: 456px; */
+            right: 464px;
             /* right: 468px; */
             /* right: 463px; */
             /* right: 459px; */
-			bottom: 34px;
+			/* bottom: 30px; */
+			bottom: 36px;
             font-size: 35px;
             word-spacing: 3px;
         }
@@ -70,8 +72,7 @@
             width: 95px;
 			position: absolute;
             left: 643px;
-			/* top: 504px; -6 */
-			top: 498px;
+			top: 504px;
             font-size: 20px;
             font-family: 'times';
             word-spacing: 5px;
@@ -97,8 +98,7 @@
             width: 1000px;
 			position: absolute;
             left: 63px;
-			/* top: 245px; -6 */
-            top: 239px;
+			top: 245px;
             font-size: 50px;
             /* font-family: 'rockb'; */
             font-family: 'times';
@@ -111,8 +111,7 @@
 			position: absolute;
             left: 539px;
 			/* bottom: 242px; */
-			/* bottom: 222px; +6 */
-			bottom: 228px;
+			bottom: 222px;
             font-size: 18px;
             font-family: 'times';
             word-spacing: 3px;
@@ -138,8 +137,7 @@
             left: 643px;
 			/* top: 493px; */
 			/* top: 397px; */
-			/* top: 420px; -6 */
-            top: 414px;
+			top: 420px;
             font-size: 18px;
             font-family: 'times';
             word-spacing: 3px;
@@ -152,8 +150,7 @@
 			position: absolute;
             left: 643px;
 			/* top: 517px; */
-			/* top: 448px; -6 */
-            top: 442px;
+			top: 448px;
             font-size: 18px;
             font-family: 'times';
             word-spacing: 3px;
@@ -166,8 +163,7 @@
 			position: absolute;
             left: 643px;
 			/* top: 541px; */
-			/* top: 477px; -6 */
-            top: 471px;
+			top: 477px;
             font-size: 18px;
             font-family: 'times';
             word-spacing: 3px;
@@ -179,8 +175,7 @@
             width: 250px;
 			position: absolute;
             left: 260px;
-			/* bottom: 184px; 6*/
-			bottom: 190px;
+			bottom: 184px;
             font-size: 16px;
             font-family: 'times';
             word-spacing: 3px;
@@ -192,8 +187,7 @@
             width: 250px;
 			position: absolute;
             left: 260px;
-			/* bottom: 160px; 6*/
-			bottom: 166px;
+			bottom: 160px;
             font-size: 16px;
             font-family: 'times';
             word-spacing: 3px;
@@ -250,7 +244,7 @@
         <div class="qrcode">
             <img src="<?= base_url()?>assets/qrcode/<?= $id?>.png" width=145 alt="">
         </div>
-        <div class="scan"><center>scan for validation</center></div>
+        <!-- <div class="scan"><center>scan for validation</center></div>
         <div class="nilai"><p style="text-align: right; margin: 0px"><?= round($skor)?></p></div>
         <div class="nama"><p style="text-align: center; margin: 0px"><b><?= $nama?></b></p></div>
         <div class="ttl"><p style="text-align: left; margin: 0px"><?= tgl_sertifikat(date("d-m-Y", strtotime($tgl_lahir)))?></p></div>
@@ -258,6 +252,6 @@
         <div class="structure"><p style="text-align: right; margin: 0px"><b><?= $structure?></b></p></div>
         <div class="reading"><p style="text-align: right; margin: 0px"><b><?= $reading?></b></p></div>
         <div class="no_doc"><p style="text-align: left; margin: 0px"><b><?= $no_doc?></b></p></div>
-        <div class="tgl"><p style="text-align: left; margin: 0px"><b><?= tgl_sertifikat(date("d-m-Y", strtotime($tgl_tes)))?></b></p></div>
+        <div class="tgl"><p style="text-align: left; margin: 0px"><b><?= tgl_sertifikat(date("d-m-Y", strtotime($tgl_tes)))?></b></p></div> -->
     </body>
 </html>

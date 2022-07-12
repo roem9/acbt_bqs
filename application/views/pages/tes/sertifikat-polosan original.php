@@ -70,8 +70,7 @@
             width: 95px;
 			position: absolute;
             left: 643px;
-			/* top: 504px; -6 */
-			top: 498px;
+			top: 504px;
             font-size: 20px;
             font-family: 'times';
             word-spacing: 5px;
@@ -97,8 +96,7 @@
             width: 1000px;
 			position: absolute;
             left: 63px;
-			/* top: 245px; -6 */
-            top: 239px;
+			top: 245px;
             font-size: 50px;
             /* font-family: 'rockb'; */
             font-family: 'times';
@@ -111,8 +109,7 @@
 			position: absolute;
             left: 539px;
 			/* bottom: 242px; */
-			/* bottom: 222px; +6 */
-			bottom: 228px;
+			bottom: 222px;
             font-size: 18px;
             font-family: 'times';
             word-spacing: 3px;
@@ -138,8 +135,7 @@
             left: 643px;
 			/* top: 493px; */
 			/* top: 397px; */
-			/* top: 420px; -6 */
-            top: 414px;
+			top: 420px;
             font-size: 18px;
             font-family: 'times';
             word-spacing: 3px;
@@ -152,8 +148,7 @@
 			position: absolute;
             left: 643px;
 			/* top: 517px; */
-			/* top: 448px; -6 */
-            top: 442px;
+			top: 448px;
             font-size: 18px;
             font-family: 'times';
             word-spacing: 3px;
@@ -166,8 +161,7 @@
 			position: absolute;
             left: 643px;
 			/* top: 541px; */
-			/* top: 477px; -6 */
-            top: 471px;
+			top: 477px;
             font-size: 18px;
             font-family: 'times';
             word-spacing: 3px;
@@ -179,8 +173,7 @@
             width: 250px;
 			position: absolute;
             left: 260px;
-			/* bottom: 184px; 6*/
-			bottom: 190px;
+			bottom: 184px;
             font-size: 16px;
             font-family: 'times';
             word-spacing: 3px;
@@ -192,8 +185,7 @@
             width: 250px;
 			position: absolute;
             left: 260px;
-			/* bottom: 160px; 6*/
-			bottom: 166px;
+			bottom: 160px;
             font-size: 16px;
             font-family: 'times';
             word-spacing: 3px;
