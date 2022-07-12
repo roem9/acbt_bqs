@@ -276,7 +276,7 @@ class Tes extends MY_Controller {
         echo json_encode($data);
     }
     
-    public function sertifikat($id){
+    public function sertifikat($tipe, $id){
         $peserta = $this->tes->get_one("peserta_toefl", ["md5(id)" => $id]);
         $tes = $this->tes->get_one("tes", ["id_tes" => $peserta['id_tes']]);
         $peserta['nama'] = ucwords(strtolower($peserta['nama']));
@@ -335,9 +335,111 @@ class Tes extends MY_Controller {
             ], 
         ]);
 
-        $mpdf->SetTitle("{$peserta['nama']}");
-        $mpdf->WriteHTML($this->load->view('pages/tes/sertifikat', $peserta, TRUE));
-        $mpdf->Output("{$peserta['nama']}.pdf", "I");
+        if($tipe == "gambar") {
+            $mpdf->SetTitle("{$peserta['nama']}");
+            $mpdf->WriteHTML($this->load->view('pages/tes/sertifikat', $peserta, TRUE));
+            $mpdf->Output("{$peserta['nama']}.pdf", "I");
+        } else {
+            $mpdf->SetTitle("{$peserta['nama']}");
+            $mpdf->WriteHTML($this->load->view('pages/tes/sertifikat-polosan', $peserta, TRUE));
+            $mpdf->Output("{$peserta['nama']}.pdf", "I");
+        }
+
+        // $mpdf->SetTitle("{$peserta['nama']}");
+        // $mpdf->WriteHTML($this->load->view('pages/tes/sertifikat', $peserta, TRUE));
+        // $mpdf->Output("{$peserta['nama']}.pdf", "I");
+
+    }
+
+    public function sertifikats($tipe, $id){
+        $peserta = $this->Main_model->get_one("peserta_toefl", ["md5(id)" => $id]);
+        $tes = $this->Main_model->get_one("tes", ["id_tes" => $peserta['id_tes']]);
+        $peserta['nama'] = $peserta['nama'];
+        $peserta['t4_lahir'] = $peserta['t4_lahir'];
+        $peserta['tahun'] = date('Y', strtotime($tes['tgl_tes']));
+        $peserta['bulan'] = getRomawi(date('m', strtotime($tes['tgl_tes'])));
+        $peserta['istima'] = poin("Listening", $peserta['nilai_listening'], $peserta['versi']);
+        $peserta['tarakib'] = poin("Structure", $peserta['nilai_structure'], $peserta['versi']);
+        $peserta['qiroah'] = poin("Reading", $peserta['nilai_reading'], $peserta['versi']);
+        $peserta['tgl_tes'] = $tes['tgl_tes'];
+        $peserta['penyelenggara'] = $tes['penyelenggara'];
+
+        $skor = ((poin("Listening", $peserta['nilai_listening'], $peserta['versi']) + poin("Structure", $peserta['nilai_structure'], $peserta['versi']) + poin("Reading", $peserta['nilai_reading'], $peserta['versi'])) * 10) / 3;
+        $peserta['skor'] = $skor;
+
+        $skor = round($skor);
+        
+        if($skor >= 210 && $skor <= 300){
+            $peserta['nilai'] = "ضعيف جدا";
+        } else if($skor >= 301 && $skor <= 400){
+            $peserta['nilai'] = "ضعيف";
+        } else if($skor >= 401 && $skor <= 450){
+            $peserta['nilai'] = "مقبول";
+        } else if($skor >= 451 && $skor <= 500){
+            $peserta['nilai'] = "جيد";
+        } else if($skor >= 501 && $skor <= 600){
+            $peserta['nilai'] = "جيد جدا";
+        } else if($skor >= 601 && $skor <= 680){
+            $peserta['nilai'] = "ممتاز";
+        }
+        
+        if($peserta['penyelenggara'] == "Englishversity"){
+            $peserta['no_doc'] = "{$peserta['no_doc']}/ST/EV/KI/{$peserta['bulan']}/{$peserta['tahun']}";
+        } else {
+            $peserta['no_doc'] = "{$peserta['no_doc']}/{$peserta['bulan']}/{$peserta['tahun']}";
+        }
+        
+        $defaultFontConfig = (new Mpdf\Config\FontVariables())->getDefaults();
+        $fontData = $defaultFontConfig['fontdata'];
+        
+        $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => [210, 330], 'orientation' => 'L',
+        // , 'margin_top' => '43', 'margin_left' => '25', 'margin_right' => '25', 'margin_bottom' => '35',
+            'fontdata' => $fontData + [
+                'rockb' => [
+                    'R' => 'ROCKB.TTF',
+                ],'rock' => [
+                    'R' => 'ROCK.TTF',
+                ],
+                'arial' => [
+                    'R' => 'arial.ttf',
+                    'useOTL' => 0xFF,
+                    'useKashida' => 75,
+                ],
+                'bodoni' => [
+                    'R' => 'BOD_R.TTF',
+                ],
+                'calibri' => [
+                    'R' => 'CALIBRI.TTF',
+                ],
+                'cambria' => [
+                    'R' => 'CAMBRIAB.TTF',
+                ]
+            ], 
+        ]);
+
+        $peserta['tipe'] = $tipe;
+
+        if($peserta['penyelenggara'] == "Englishversity"){
+            if($tipe == "gambar") {
+                $mpdf->SetTitle("{$peserta['nama']}");
+                $mpdf->WriteHTML($this->load->view('pages/sertifikat/sertifikat-englishversity', $peserta, TRUE));
+                $mpdf->Output("{$peserta['nama']}.pdf", "I");
+            } else {
+                $mpdf->SetTitle("{$peserta['nama']}");
+                $mpdf->WriteHTML($this->load->view('pages/sertifikat/sertifikat-polosan-englishversity', $peserta, TRUE));
+                $mpdf->Output("Polosan {$peserta['nama']}.pdf", "I");
+            }
+        } else {
+            if($tipe == "gambar") {
+                $mpdf->SetTitle("{$peserta['nama']}");
+                $mpdf->WriteHTML($this->load->view('pages/sertifikat/sertifikat-alazhar', $peserta, TRUE));
+                $mpdf->Output("{$peserta['nama']}.pdf", "I");
+            } else {
+                $mpdf->SetTitle("{$peserta['nama']}");
+                $mpdf->WriteHTML($this->load->view('pages/sertifikat/sertifikat-polosan-alazhar', $peserta, TRUE));
+                $mpdf->Output("Polosan {$peserta['nama']}.pdf", "I");
+            }
+        }
 
     }
     

@@ -63,8 +63,14 @@ class Tes_model extends MY_Model {
             $this->datatables->edit_column("nilai_listening", '$1', 'poin("Listening", nilai_listening)');
             $this->datatables->edit_column("nilai_structure", '$1', 'poin("Structure", nilai_structure)');
             $this->datatables->edit_column("nilai_reading", '$1', 'poin("Reading", nilai_reading)');
+            // $this->datatables->add_column('full', '
+            //     <a href="'.base_url().'tes/sertifikat/$1" target="_blank" class="btn btn-info">'.tablerIcon("award", "me-1").'</a>
+            // ', 'md5(id)');
+            $this->datatables->add_column('polosan', '
+                <a href="'.base_url().'tes/sertifikat/polosan/$1" target="_blank" class="btn btn-info">'.tablerIcon("award", "me-1").'</a>
+            ', 'md5(id)');
             $this->datatables->add_column('full', '
-                <a href="'.base_url().'tes/sertifikat/$1" target="_blank" class="btn btn-info">'.tablerIcon("award", "me-1").'</a>
+                <a href="'.base_url().'tes/sertifikat/gambar/$1" target="_blank" class="btn btn-info">'.tablerIcon("award", "me-1").'</a>
             ', 'md5(id)');
             $this->datatables->add_column('skor', '$1', 'skor(nilai_listening, nilai_structure, nilai_reading)');
         } else {
@@ -219,6 +225,7 @@ class Tes_model extends MY_Model {
         $config = $this->config();
 
         $id = $this->input->post("id");
+        $sertifikat = $this->input->post("sertifikat");
 
         $peserta = $this->get_one("peserta_toefl", ["id" => $id]);
         $tes = $this->get_one("tes", ["id_tes" => $peserta['id_tes']]);
@@ -260,7 +267,8 @@ class Tes_model extends MY_Model {
         $this->ciqrcode->generate($params); // fungsi untuk generate QR CODE
 
 
-        $data = $this->edit_data("peserta_toefl", ["id" => $id], ["no_doc" => $no_doc]);
+        // $data = $this->edit_data("peserta_toefl", ["id" => $id], ["no_doc" => $no_doc]);
+        $data = $this->edit_data("peserta_toefl", ["id" => $id], ["no_doc" => $no_doc, "sertifikat" => $sertifikat]);
         if($data) return 1;
         else return 0;
     }
