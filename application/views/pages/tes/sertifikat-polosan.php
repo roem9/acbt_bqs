@@ -46,11 +46,11 @@
         .qrcode{
             /* width: 210px; */
 			position: absolute;
-            right: 455px;
-			/* bottom: 30px; */
-			/* bottom: 33px; */
-			/* bottom: 35px; */
-			bottom: 34px;
+            right: 456px;
+            /* right: 468px; */
+            /* right: 463px; */
+            /* right: 459px; */
+			bottom: 30px;
             font-size: 35px;
             word-spacing: 3px;
         }
@@ -60,10 +60,7 @@
             /* width: 210px; */
 			position: absolute;
             right: 484px;
-			/* bottom: 20px; */
-			/* bottom: 23px; */
-			/* bottom: 25px; */
-			bottom: 24px;
+			bottom: 20px;
             font-size: 10px;
             word-spacing: 3px;
         }
