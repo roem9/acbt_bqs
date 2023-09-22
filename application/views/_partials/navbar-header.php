@@ -42,7 +42,7 @@
                 <?= tablerIcon("brand-firefox", "me-1");?>
                 Website
             </a>
-            <a href="#editPoin" class="dropdown-item editListening" data-bs-toggle="modal">
+            <!-- <a href="#editPoin" class="dropdown-item editListening" data-bs-toggle="modal">
                 <?= tablerIcon("dice", "me-1");?>
                 Nilai Listening
             </a>
@@ -53,7 +53,7 @@
             <a href="#editPoin" class="dropdown-item editReading" data-bs-toggle="modal">
                 <?= tablerIcon("dice", "me-1");?>
                 Nilai Reading
-            </a>
+            </a> -->
             <a href="<?= base_url()?>auth/logout" class="dropdown-item">
                 <?= tablerIcon("logout", "me-1");?>
                 Logout

@@ -27,6 +27,9 @@ $("#addSubSoal .btnTambah").click(function () {
 					text: "lengkapi isi form terlebih dahulu",
 				});
 			} else {
+				let banner = CKEDITOR.instances["form-text-add"].getData();
+				Object.assign(formData, { banner: banner });
+
 				data = formData;
 				let result = ajax(url_base + "subsoal/add_subsoal", "POST", data);
 
@@ -60,9 +63,11 @@ $(document).on("click", ".editSubSoal", function () {
 	let data = { id_sub: id_sub };
 	let result = ajax(url_base + "subsoal/get_subsoal", "POST", data);
 
-    $.each(result, function(key, value){
-        $(form+" [name='"+key+"']").val(value)
-    })
+	CKEDITOR.instances["form-text-edit"].setData(result.banner);
+
+	$.each(result, function (key, value) {
+		$(form + " [name='" + key + "']").val(value);
+	});
 });
 
 // ketika menyimpan hasil edit soal
@@ -77,11 +82,13 @@ $("#editSubSoal .btnEdit").click(function () {
 	}).then(function (result) {
 		if (result.value) {
 			let form = "#editSubSoal";
-            let formData = {};
+			let formData = {};
 
-            $(form+" .form").each(function(index){
-                formData = Object.assign(formData, {[$(this).attr("name")]: $(this).val()})
-            })
+			$(form + " .form").each(function (index) {
+				formData = Object.assign(formData, {
+					[$(this).attr("name")]: $(this).val(),
+				});
+			});
 
 			let eror = required(form);
 
@@ -92,6 +99,9 @@ $("#editSubSoal .btnEdit").click(function () {
 					text: "lengkapi isi form terlebih dahulu",
 				});
 			} else {
+				let banner = CKEDITOR.instances["form-text-edit"].getData();
+				Object.assign(formData, { banner: banner });
+
 				data = formData;
 				let result = ajax(url_base + "subsoal/update_subsoal", "POST", data);
 

@@ -14,17 +14,17 @@
                     <div class="form-floating mb-3">
                         <select name="tipe_soal" class="form form-control required">
                             <option value="">Pilih Tipe Soal</option>
-                            <option value="TOEFL">TOEFL</option>
+                            <!-- <option value="TOEFL">TOEFL</option> -->
                             <!-- <option value="TOAFL">TOAFL</option> -->
-                            <!-- <option value="Latihan">Latihan</option> -->
+                            <option value="Latihan">Latihan</option>
                             <!-- <option value="Placement Test">Placement Test</option> -->
                         </select>
                         <label for="">Tipe Soal</label>
                     </div>
-                    <!-- <div class="form-floating mb-3">
+                    <div class="form-floating mb-3">
                         <input type="text" name="poin" class="number form form-control" disabled>
                         <label for="">Poin Per Soal</label>
-                    </div> -->
+                    </div>
                     <div class="form-floating mb-3">
                         <input type="text" name="nama_soal" class="form form-control required">
                         <label for="">Nama Soal</label>
@@ -69,17 +69,17 @@
                 <div class="form-floating mb-3">
                     <select name="tipe_soal" class="form form-control required">
                         <option value="">Pilih Tipe Soal</option>
-                        <option value="TOEFL">TOEFL</option>
+                        <!-- <option value="TOEFL">TOEFL</option> -->
                         <!-- <option value="TOAFL">TOAFL</option> -->
-                        <!-- <option value="Latihan">Latihan</option> -->
+                        <option value="Latihan">Latihan</option>
                         <!-- <option value="Placement Test">Placement Test</option> -->
                     </select>
                     <label for="">Tipe Soal</label>
                 </div>
-                <!-- <div class="form-floating mb-3">
+                <div class="form-floating mb-3">
                     <input type="text" name="poin" class="number form form-control">
                     <label for="">Poin Per Soal</label>
-                </div> -->
+                </div>
                 <div class="form-floating mb-3">
                     <input type="text" name="nama_soal" class="form form-control required">
                     <label for="">Nama Soal</label>
@@ -145,6 +145,10 @@
                             <?php endforeach;?>
                         </select>
                         <label>Sub Soal</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" name="waktu" class="number form form-control">
+                        <label for="">Waktu (Menit)</label>
                     </div>
                 </form>
             </div>

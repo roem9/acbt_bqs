@@ -89,6 +89,7 @@ class Soal_model extends MY_Model {
             $data_sub = $this->get_one("sub_soal", ["id_sub" => $sub['id_sub']]);
             $data[$i] = $data_sub;
             $data[$i]['id'] = $sub['id'];
+            $data[$i]['waktu'] = $sub['waktu'];
         }
 
         return $data;

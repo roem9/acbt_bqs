@@ -11,13 +11,13 @@
                         <input type="text" name="nama_tes" class="form form-control required">
                         <label>Nama Tes</label>
                     </div>
-                    <div class="form-floating mb-3">
+                    <!-- <div class="form-floating mb-3">
                         <select name="tipe_tes" class="form form-control required">
                             <option value="">Pilih Tipe Tes</option>
                             <option value="Tes TOEFL Gratis (Tidak Bersertifikat)">Tes TOEFL</option>
                         </select>
                         <label for="">Tipe Tes</label>
-                    </div>
+                    </div> -->
                     <div class="form-floating mb-3">
                         <input type="date" name="tgl_tes" id="tgl_tes_add" class="form form-control required">
                         <label for="tgl_tes_add">Tgl Tes</label>
@@ -35,7 +35,7 @@
                         </select>
                         <label for="id_soal_add">Soal</label>
                     </div>
-                    <h4 class="mb-3">Tampilan Soal</h4>
+                    <!-- <h4 class="mb-3">Tampilan Soal</h4>
                     <div class="form-selectgroup form-selectgroup-boxes d-flex flex-column mb-3">
 
                         <input type="hidden" name="tampilan_soal" class="form required">
@@ -76,15 +76,15 @@
                             </div>
                         </label>
                         
-                    </div>
-                    <div class="form-floating mb-3">
+                    </div> -->
+                    <!-- <div class="form-floating mb-3">
                         <select name="pembahasan" class="form form-control required">
                             <option value="">Pilih</option>
                             <option value="Ya">Ya</option>
                             <option value="Tidak">Tidak</option>
                         </select>
                         <label for="">Tampilkan Pembahasan</label>
-                    </div>
+                    </div> -->
                     <div class="form-floating mb-3">
                         <input type="text" name="password" class="form form-control required">
                         <label for="password_add" class="col-form-label">Password</label>
@@ -110,20 +110,9 @@
                         <textarea name="msg" class='ckeditor' id='form-text-add'></textarea>
                         <small class="mt-3">
                             <span class="text-danger">*BERIKUT CARA MENGGUNAKAN VARIABEL YANG BISA DITAMPILKAN PADA PESAN.</span> <br>
-                            <b>Tes TOEFL : </b><br>
-                            $nama = nama, $t4_lahir = Tempat Lahir, $tgl_lahir = Tgl Lahir, $alamat = Alamat, $no_wa = No. WA, $email = email, $jk = gende, $nilai_listening = Nilai Listening, $nilai_structure = Nilai Structure, $nilai_reading = Nilai Reading, $skor = Skor Tes,
-                            $tes = Nama Tes, $tgl_tes = Tanggal Tes, $tgl_pengumuman = Tanggal Pengumuman<br><br>
-                            <b>Contoh Pesan : </b><br>
-                            Selamat Anda Telah Menyelesaikan $tes, Berikut Ini Data Diri Anda :<br>
-                            Nama        : $nama<br>
-                            TTL         : $t4_lahir, $tgl_lahir<br>
-                            Gender      : $jk<br>
-                            Alamat      : $alamat <br><br>
-                            Berikut Ini Nilai Anda :<br>
-                            Nilai Listening : $nilai_listening<br>
-                            Nilai Structure : $nilai_structure<br>
-                            Nilai Reading   : $nilai_reading<br>
-                            SKOR TOEFL      : $skor<br>
+                            <b>Tes Latihan : </b><br>
+                            $poin = total poin, $nama = nama, $email = email, $tes = Nama Tes, $tgl_tes = Tanggal Tes, $tgl_pengumuman = Tanggal Pengumuman <br><br>
+                            
                         </small>
                     </div>
 
@@ -153,13 +142,13 @@
                         <input type="text" name="nama_tes" class="form form-control required">
                         <label>Nama Tes</label>
                     </div>
-                    <div class="form-floating mb-3">
+                    <!-- <div class="form-floating mb-3">
                         <select name="tipe_tes" class="form form-control required">
                             <option value="">Pilih Tipe Tes</option>
                             <option value="Tes TOEFL Gratis (Tidak Bersertifikat)">Tes TOEFL</option>
                         </select>
                         <label for="">Tipe Tes</label>
-                    </div>
+                    </div> -->
                     <div class="form-floating mb-3">
                         <input type="date" name="tgl_tes" class="form form-control required">
                         <label for="">Tgl Tes</label>
@@ -178,7 +167,7 @@
                         <label for="">Soal</label>
                     </div>
                     
-                    <h4 class="mb-3">Tampilan Soal</h4>
+                    <!-- <h4 class="mb-3">Tampilan Soal</h4>
                     <div class="form-selectgroup form-selectgroup-boxes d-flex flex-column mb-3">
 
                         <input type="hidden" name="tampilan_soal" class="form required">
@@ -219,15 +208,15 @@
                             </div>
                         </label>
                         
-                    </div>
-                    <div class="form-floating mb-3">
+                    </div> -->
+                    <!-- <div class="form-floating mb-3">
                         <select name="pembahasan" class="form form-control required">
                             <option value="">Pilih</option>
                             <option value="Ya">Ya</option>
                             <option value="Tidak">Tidak</option>
                         </select>
                         <label for="">Tampilkan Pembahasan</label>
-                    </div>
+                    </div> -->
                     <div class="form-floating mb-3">
                         <input type="text" name="password" class="form form-control required">
                         <label for="" class="col-form-label">Password</label>
@@ -253,20 +242,8 @@
                         <textarea name="msg" class='ckeditor' id='form-text-edit'></textarea>
                         <small class="mt-3">
                             <span class="text-danger">*BERIKUT CARA MENGGUNAKAN VARIABEL YANG BISA DITAMPILKAN PADA PESAN.</span> <br>
-                            <b>Tes TOEFL : </b><br>
-                            $nama = nama, $t4_lahir = Tempat Lahir, $tgl_lahir = Tgl Lahir, $alamat = Alamat, $no_wa = No. WA, $email = email, $jk = gende, $nilai_listening = Nilai Listening, $nilai_structure = Nilai Structure, $nilai_reading = Nilai Reading, $skor = Skor Tes,
-                            $tes = Nama Tes, $tgl_tes = Tanggal Tes, $tgl_pengumuman = Tanggal Pengumuman<br><br>
-                            <b>Contoh Pesan : </b><br>
-                            Selamat Anda Telah Menyelesaikan $tes, Berikut Ini Data Diri Anda :<br>
-                            Nama        : $nama<br>
-                            TTL         : $t4_lahir, $tgl_lahir<br>
-                            Gender      : $jk<br>
-                            Alamat      : $alamat <br><br>
-                            Berikut Ini Nilai Anda :<br>
-                            Nilai Listening : $nilai_listening<br>
-                            Nilai Structure : $nilai_structure<br>
-                            Nilai Reading   : $nilai_reading<br>
-                            SKOR TOEFL      : $skor<br>
+                            <b>Tes Latihan : </b><br>
+                            $poin = total poin, $nama = nama, $email = email, $tes = Nama Tes, $tgl_tes = Tanggal Tes, $tgl_pengumuman = Tanggal Pengumuman <br><br>
                         </small>
                     </div>
                 </form>
