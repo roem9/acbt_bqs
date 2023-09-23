@@ -24,12 +24,12 @@
                         <label for="">Nama Sub Soal</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <select name="tipe_soal" class="form form-control required">
+                        <select name="isaudio" class="form form-control required">
                             <option value="">Pilih</option>
                             <option value="1">Ya</option>
                             <option value="0">Tidak</option>
                         </select>
-                        <label for="">Menggunakan Audio?</label>
+                        <label for="">Otomatis Play Audio?</label>
                     </div>
                     <div class="form-floating mb-3">
                         <textarea name="catatan" class="form form-control required" style="height: 100px"></textarea>
@@ -82,7 +82,7 @@
                         <option value="1">Ya</option>
                         <option value="0">Tidak</option>
                     </select>
-                    <label for="">Menggunakan Audio?</label>
+                    <label for="">Otomatis Play Audio?</label>
                 </div>
                 <div class="form-floating mb-3">
                     <textarea name="catatan" class="form form-control required" style="height: 100px"></textarea>

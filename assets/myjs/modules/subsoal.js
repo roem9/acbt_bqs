@@ -36,6 +36,7 @@ $("#addSubSoal .btnTambah").click(function () {
 				if (result == 1) {
 					loadData();
 					$("#formAddSubSoal").trigger("reset");
+					CKEDITOR.instances["form-text-add"].setData("");
 
 					Swal.fire({
 						position: "center",
