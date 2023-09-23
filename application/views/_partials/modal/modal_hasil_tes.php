@@ -87,6 +87,51 @@
     </div>
 </div>
 
+<div class="modal modal-blur fade" id="detailPesertaLatihan" data-backdrop="static" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Detail Peserta</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" class="form" name="id" id="id">
+                <div class="form-floating mb-3">
+                    <input type="text" name="nama" class="form form-control required" readonly>
+                    <label>Nama Peserta</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="no_wa" class="form form-control required" readonly>
+                    <label>No. WA</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="email" class="form form-control required" readonly>
+                    <label>Email</label>
+                </div>
+                <h3>Data Tes</h3>
+                <div class="form-floating mb-3">
+                    <input type="text" name="tgl_input" class="form form-control required" readonly>
+                    <label>Waktu Selesai</label>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Rekap</label>
+                    <textarea class="form form-control required" name="rekap_sesi" data-bs-toggle="autosize" style="overflow: hidden; overflow-wrap: break-word; resize: none; text-align: start; height: 80px;" readonly></textarea>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="nilai" class="form form-control required" readonly>
+                    <label>Nilai</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="d-flex justify-content-end">
+                    <button type="button" class="btn me-auto mr-3" data-bs-dismiss="modal">Tutup</button>
+                    <!-- <button type="button" class="btn btn-success btnEdit">Edit</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="modal modal-blur fade" id="addSertifikat" data-backdrop="static" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
         <div class="modal-content">

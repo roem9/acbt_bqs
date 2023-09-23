@@ -111,8 +111,16 @@
                         <small class="mt-3">
                             <span class="text-danger">*BERIKUT CARA MENGGUNAKAN VARIABEL YANG BISA DITAMPILKAN PADA PESAN.</span> <br>
                             <b>Tes Latihan : </b><br>
-                            $poin = total poin, $nama = nama, $email = email, $tes = Nama Tes, $tgl_tes = Tanggal Tes, $tgl_pengumuman = Tanggal Pengumuman <br><br>
-                            
+                            $poin = total poin, $nama = nama, $email = email, $no_wa = No Whatsapp, $rekap_sesi = Rekap Sesi, $tes = Nama Tes, $tgl_tes = Tanggal Tes, $tgl_pengumuman = Tanggal Pengumuman <br><br>
+                            <p>
+                                Contoh : <br>
+                                Selamat Anda telah menyelesaikan $tes, Berikut hasil tes Anda :<br>
+                                Nama : $nama <br>
+                                No WA : $no_wa <br>
+                                Email : $email <br>
+                                $rekap_sesi <br>
+                                Nilai : $poin
+                            </p>
                         </small>
                     </div>
 
@@ -243,7 +251,16 @@
                         <small class="mt-3">
                             <span class="text-danger">*BERIKUT CARA MENGGUNAKAN VARIABEL YANG BISA DITAMPILKAN PADA PESAN.</span> <br>
                             <b>Tes Latihan : </b><br>
-                            $poin = total poin, $nama = nama, $email = email, $tes = Nama Tes, $tgl_tes = Tanggal Tes, $tgl_pengumuman = Tanggal Pengumuman <br><br>
+                            $poin = total poin, $nama = nama, $email = email, $no_wa = No Whatsapp, $rekap_sesi = Rekap Sesi, $tes = Nama Tes, $tgl_tes = Tanggal Tes, $tgl_pengumuman = Tanggal Pengumuman <br><br>
+                            <p>
+                                Contoh : <br>
+                                Selamat Anda telah menyelesaikan $tes, Berikut hasil tes Anda :<br>
+                                Nama : $nama <br>
+                                No WA : $no_wa <br>
+                                Email : $email <br>
+                                $rekap_sesi <br>
+                                Nilai : $poin
+                            </p>
                         </small>
                     </div>
                 </form>

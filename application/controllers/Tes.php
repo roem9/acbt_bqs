@@ -180,12 +180,13 @@ class Tes extends MY_Controller {
                 } else {
                     $semua_peserta = $this->tes->get_all("peserta", ["id_tes" => $tes['id_tes']]);
                     $spreadsheet->setActiveSheetIndex(0)
-                                ->setCellValue('A1', '<h1>LIST PESERTA ' . $tes['nama_tes'] . '</h1>')
+                                ->setCellValue('A1', 'LIST PESERTA ' . $tes['nama_tes'])
                                 ->setCellValue('A2', 'No')
                                 ->setCellValue('B2', 'Nama Lengkap')
-                                ->setCellValue('C2', 'Email')
-                                ->setCellValue('D2', 'Benar')
-                                ->setCellValue('E2', 'Nilai');
+                                ->setCellValue('C2', 'No Whatsapp')
+                                ->setCellValue('D2', 'Email')
+                                ->setCellValue('E2', 'Rekap')
+                                ->setCellValue('F2', 'Nilai');
 
                     $spreadsheet->getActiveSheet()->mergeCells('A1:N1');
                     
@@ -196,9 +197,10 @@ class Tes extends MY_Controller {
                             $spreadsheet->setActiveSheetIndex(0)
                                         ->setCellValue('A' . $kolom, $nomor)
                                         ->setCellValue('B' . $kolom, $peserta['nama'])
-                                        ->setCellValue('C' . $kolom, $peserta['email'])
-                                        ->setCellValue('D' . $kolom, $peserta['nilai'])
-                                        ->setCellValue('E' . $kolom, skor_latihan($tes['id_tes'], $peserta['nilai']));
+                                        ->setCellValue('C' . $kolom, "'$peserta[no_wa]")
+                                        ->setCellValue('D' . $kolom, $peserta['email'])
+                                        ->setCellValue('E' . $kolom, $peserta['rekap_sesi'])
+                                        ->setCellValue('F' . $kolom, $peserta['nilai']);
             
                             $kolom++;
                             $nomor++;
@@ -243,6 +245,11 @@ class Tes extends MY_Controller {
     
     public function get_peserta_toefl(){
         $data = $this->tes->get_peserta_toefl();
+        echo json_encode($data);
+    }
+
+    public function get_peserta(){
+        $data = $this->tes->get_peserta();
         echo json_encode($data);
     }
 

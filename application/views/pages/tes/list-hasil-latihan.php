@@ -37,9 +37,10 @@
                                 <thead>
                                     <tr>
                                         <th class="text-dark desktop mobile-l mobile-p tablet-l tablet-p" style="font-size: 11px">Nama Peserta</th>
+                                        <th class="text-dark desktop w-1" style="font-size: 11px">No. Whatsapp</th>
                                         <th class="text-dark desktop w-1" style="font-size: 11px">Email</th>
-                                        <th class="text-dark desktop w-1" style="font-size: 11px">Benar</th>
                                         <th class="text-dark desktop w-1" style="font-size: 11px">Nilai</th>
+                                        <th class="text-dark desktop w-1" style="font-size: 11px">Action</th>
                                     </tr>
                                 </thead>
                             </table>

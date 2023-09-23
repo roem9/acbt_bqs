@@ -74,10 +74,9 @@ class Tes_model extends MY_Model {
             ', 'md5(id)');
             $this->datatables->add_column('skor', '$1', 'skor(nilai_listening, nilai_structure, nilai_reading)');
         } else {
-            $this->datatables->select("id, id_tes, nama, email, nilai");
+            $this->datatables->select("id, id_tes, nama, email, nilai, no_wa");
             $this->datatables->from("peserta");
             $this->datatables->where("md5(id_tes)", $id);
-            $this->datatables->add_column("skor", "$1", 'skor_latihan(id_tes, nilai)');
         }
 
         $this->datatables->add_column('action','
@@ -87,13 +86,9 @@ class Tes_model extends MY_Model {
                         Menu
                     </button>
                     <div class="dropdown-menu dropdown-menu-end">
-                        <a class="dropdown-item editPeserta" href="#editPeserta" data-bs-toggle="modal" data-id="$1">
+                        <a class="dropdown-item editPeserta" href="#detailPesertaLatihan" data-bs-toggle="modal" data-id="$1">
                             '.tablerIcon("info-circle", "me-1").'
                             Detail Peserta
-                        </a>
-                        <a class="dropdown-item" href="'.$config[1]['value'].'/sertifikat/no/$2" target="_blank">
-                            '.tablerIcon("award", "me-1").'
-                            Link Sertifikat
                         </a>
                     </div>
                 </span>', 'id, md5(id)');
@@ -166,6 +161,13 @@ class Tes_model extends MY_Model {
         $id = $this->input->post("id");
         $data = $this->get_one("peserta_toefl", ["id" => $id]);
         $data['tgl_input'] = date("j/n/Y @ H:i:s", strtotime($data['tgl_input']));
+        return $data;
+    }
+
+    public function get_peserta(){
+        $id = $this->input->post("id");
+        $data = $this->get_one("peserta", ["id" => $id]);
+        $data['tgl_input'] = ($data['tgl_input'] == null) ? date("j/n/Y @ H:i:s", strtotime($data['tgl_input'])) : '';
         return $data;
     }
 
