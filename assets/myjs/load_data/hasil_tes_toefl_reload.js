@@ -203,8 +203,8 @@ if (tipe == "TOEFL" || tipe == "TOAFL") {
 		},
 		columns: [
 			{ data: "nama" },
-			{ data: "email" },
 			{ data: "no_wa" },
+			{ data: "email" },
 			{
 				data: "nilai",
 				render: function (data) {
