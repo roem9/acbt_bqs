@@ -77,14 +77,14 @@
                         </label>
                         
                     </div> -->
-                    <!-- <div class="form-floating mb-3">
+                    <div class="form-floating mb-3">
                         <select name="pembahasan" class="form form-control required">
                             <option value="">Pilih</option>
                             <option value="Ya">Ya</option>
                             <option value="Tidak">Tidak</option>
                         </select>
                         <label for="">Tampilkan Pembahasan</label>
-                    </div> -->
+                    </div>
                     <div class="form-floating mb-3">
                         <input type="text" name="password" class="form form-control required">
                         <label for="password_add" class="col-form-label">Password</label>
@@ -111,7 +111,7 @@
                         <small class="mt-3">
                             <span class="text-danger">*BERIKUT CARA MENGGUNAKAN VARIABEL YANG BISA DITAMPILKAN PADA PESAN.</span> <br>
                             <b>Tes Latihan : </b><br>
-                            $poin = total poin, $nama = nama, $email = email, $no_wa = No Whatsapp, $rekap_sesi = Rekap Sesi, $tes = Nama Tes, $tgl_tes = Tanggal Tes, $tgl_pengumuman = Tanggal Pengumuman <br><br>
+                            $poin = total poin, $nama = nama, $email = email, $no_wa = No Whatsapp, $rekap_sesi = Rekap Sesi, $tes = Nama Tes, $tgl_tes = Tanggal Tes, $tgl_pengumuman = Tanggal Pengumuman, $link = Link Admin <br><br>
                             <p>
                                 Contoh : <br>
                                 Selamat Anda telah menyelesaikan $tes, Berikut hasil tes Anda :<br>
@@ -119,7 +119,8 @@
                                 No WA : $no_wa <br>
                                 Email : $email <br>
                                 $rekap_sesi <br>
-                                Nilai : $poin
+                                Nilai : $poin<br>
+                                Silakan menghubungi Admin melalui link berikut : $link
                             </p>
                         </small>
                     </div>
@@ -217,14 +218,14 @@
                         </label>
                         
                     </div> -->
-                    <!-- <div class="form-floating mb-3">
+                    <div class="form-floating mb-3">
                         <select name="pembahasan" class="form form-control required">
                             <option value="">Pilih</option>
                             <option value="Ya">Ya</option>
                             <option value="Tidak">Tidak</option>
                         </select>
                         <label for="">Tampilkan Pembahasan</label>
-                    </div> -->
+                    </div>
                     <div class="form-floating mb-3">
                         <input type="text" name="password" class="form form-control required">
                         <label for="" class="col-form-label">Password</label>
@@ -251,7 +252,7 @@
                         <small class="mt-3">
                             <span class="text-danger">*BERIKUT CARA MENGGUNAKAN VARIABEL YANG BISA DITAMPILKAN PADA PESAN.</span> <br>
                             <b>Tes Latihan : </b><br>
-                            $poin = total poin, $nama = nama, $email = email, $no_wa = No Whatsapp, $rekap_sesi = Rekap Sesi, $tes = Nama Tes, $tgl_tes = Tanggal Tes, $tgl_pengumuman = Tanggal Pengumuman <br><br>
+                            $poin = total poin, $nama = nama, $email = email, $no_wa = No Whatsapp, $rekap_sesi = Rekap Sesi, $tes = Nama Tes, $tgl_tes = Tanggal Tes, $tgl_pengumuman = Tanggal Pengumuman, $link = Link Admin <br><br>
                             <p>
                                 Contoh : <br>
                                 Selamat Anda telah menyelesaikan $tes, Berikut hasil tes Anda :<br>
@@ -259,7 +260,8 @@
                                 No WA : $no_wa <br>
                                 Email : $email <br>
                                 $rekap_sesi <br>
-                                Nilai : $poin
+                                Nilai : $poin<br>
+                                Silakan menghubungi Admin melalui link berikut : $link
                             </p>
                         </small>
                     </div>

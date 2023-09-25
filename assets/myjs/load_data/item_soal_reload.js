@@ -9,6 +9,14 @@ function load_item(id) {
 	// result = 1;
 	total = 0;
 	if (result.item.length != 0) {
+		if (result.tipe_soal == "Tampil Satuan") {
+			html += `
+				<div class="alert alert-warning" role="alert">
+					<b>Perhatian!</b> Untuk tipe soal <b>Tampil Satuan</b> jika menggunakan <b>audio</b>, mohon letakkan <b>audio</b> selalu pada <b>urutan pertama</b>
+				</div>
+			`;
+		}
+
 		result.item.forEach((data) => {
 			if (data.item == "soal") {
 				data_total = total;
