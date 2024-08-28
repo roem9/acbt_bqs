@@ -181,9 +181,9 @@ function detailSubSoal(id) {
 		result.forEach(function (dataSesi) {
 			waktuSesi = "";
 
-			if (dataSesi.tipe_soal == "Tampil Keseluruhan") {
-				waktuSesi = `(${dataSesi.waktu} m)`;
-			}
+			// if (dataSesi.tipe_soal == "Tampil Keseluruhan") {
+			waktuSesi = `(${dataSesi.waktu} menit)`;
+			// }
 
 			sesi +=
 				`<li class="list-group-item d-flex justify-content-between">
@@ -191,7 +191,7 @@ function detailSubSoal(id) {
 				num +
 				`. ` +
 				dataSesi.nama_sub +
-				` ${waktuSesi}
+				` <p>${dataSesi.nama_sesi} ${waktuSesi}</p>
                     <a href="javascript:void(0)" class="deleteSesi" data-id="` +
 				dataSesi.id +
 				`">

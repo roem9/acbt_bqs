@@ -11,26 +11,30 @@
                         <input type="date" name="tgl_pembuatan" class="form form-control required">
                         <label for="">Tgl Pembuatan</label>
                     </div>
-                    <div class="form-floating mb-3">
+                    <!-- <div class="form-floating mb-3">
                         <select name="tipe_soal" class="form form-control required">
                             <option value="">Pilih Tipe Soal</option>
                             <option value="Tampil Satuan">Tampil Satuan</option>
                             <option value="Tampil Keseluruhan">Tampil Keseluruhan</option>
                         </select>
                         <label for="">Tipe Soal</label>
-                    </div>
+                    </div> -->
                     <div class="form-floating mb-3">
                         <input type="text" name="nama_sub" class="form form-control required">
                         <label for="">Nama Sub Soal</label>
                     </div>
                     <!-- <div class="form-floating mb-3">
-                        <select name="isaudio" class="form form-control required">
-                            <option value="">Pilih</option>
-                            <option value="1">Ya</option>
-                            <option value="0">Tidak</option>
-                        </select>
-                        <label for="">Otomatis Play Audio?</label>
+                        <input type="text" name="waktu" class="form form-control required">
+                        <label for="">Waktu</label>
                     </div> -->
+                    <div class="form-floating mb-3">
+                        <select name="tipe_soal" class="form form-control required">
+                            <option value="">Pilih Tipe Sub Soal</option>
+                            <option value="sub soal biasa">Sub Soal Biasa</option>
+                            <option value="sub soal berbobot">Sub Soal Berbobot</option>
+                        </select>
+                        <label for="">Tipe Sub Soal</label>
+                    </div>
                     <div class="form-floating mb-3">
                         <textarea name="catatan" class="form form-control required" style="height: 100px"></textarea>
                         <label for="" class="col-form-label">Catatan</label>
@@ -64,26 +68,30 @@
                     <input type="date" name="tgl_pembuatan" class="form form-control required">
                     <label for="">Tgl Pembuatan</label>
                 </div>
-                <div class="form-floating mb-3">
+                <!-- <div class="form-floating mb-3">
                     <select name="tipe_soal" class="form form-control required">
                         <option value="">Pilih Tipe Soal</option>
                         <option value="Tampil Satuan">Tampil Satuan</option>
                         <option value="Tampil Keseluruhan">Tampil Keseluruhan</option>
                     </select>
                     <label for="">Tipe Soal</label>
-                </div>
+                </div> -->
                 <div class="form-floating mb-3">
                     <input type="text" name="nama_sub" class="form form-control required">
                     <label for="">Nama Sub Soal</label>
                 </div>
                 <!-- <div class="form-floating mb-3">
-                    <select name="isaudio" class="form form-control required">
-                        <option value="">Pilih</option>
-                        <option value="1">Ya</option>
-                        <option value="0">Tidak</option>
-                    </select>
-                    <label for="">Otomatis Play Audio?</label>
+                    <input type="text" name="waktu" class="form form-control required">
+                    <label for="">Waktu</label>
                 </div> -->
+                <div class="form-floating mb-3">
+                    <select name="tipe_soal" class="form form-control required">
+                        <option value="">Pilih Tipe Sub Soal</option>
+                        <option value="sub soal biasa">Sub Soal Biasa</option>
+                        <option value="sub soal berbobot">Sub Soal Berbobot</option>
+                    </select>
+                    <label for="">Tipe Sub Soal</label>
+                </div>
                 <div class="form-floating mb-3">
                     <textarea name="catatan" class="form form-control required" style="height: 100px"></textarea>
                     <label for="" class="col-form-label">Catatan</label>

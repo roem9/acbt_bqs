@@ -164,6 +164,59 @@ function load_item(id) {
 				}
 
 				item = item + waktu;
+			} else if (data.item == "soal berbobot") {
+				data_total = total;
+				total = parseInt(total) + parseInt(data.waktu_soal);
+
+				soal = `<div class="mb-3">` + data.data.soal + `</div>`;
+				// jawaban = `<div class="mb-3 text-danger">`+data.data.jawaban+`</div>`
+				pilihan = "";
+				data.data.pilihan.forEach((data_pilihan, index) => {
+					if (data_pilihan == data.data.jawaban) checked = "checked";
+					else checked = "disabled";
+					pilihan +=
+						`
+                        <div class="mb-3">
+                            <div class="form-check p-0" dir="${data.penulisan}">
+                                <label>
+                                    <input type="radio" ` +
+						checked +
+						`>
+                                    <span>
+						${data_pilihan} (${data.data.bobot[index]})
+						</span>
+                                </label>
+                            </div>
+                        </div>`;
+				});
+
+				// item = soal+pilihan+jawaban;
+				item = soal + pilihan;
+
+				if (tipe_soal == "Tampil Satuan") {
+					waktu =
+						`
+                            <p>
+                                Waktu Soal : ` +
+						data.waktu_soal +
+						`
+                                Total Waktu : ` +
+						secondsToTime(total) +
+						`
+                            </p>
+                            <a href="javascript:void(0)" class="btn btn-sm btn-success btnPlay" data-total="` +
+						data_total +
+						`" data-range="` +
+						total +
+						`">
+                                Play
+                            </a>
+                            `;
+				} else {
+					waktu = "";
+				}
+
+				item = item + waktu;
 			} else if (data.item == "petunjuk") {
 				data_total = total;
 				total = parseInt(total) + parseInt(data.waktu_soal);

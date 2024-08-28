@@ -16,6 +16,17 @@ $(document).on("click", ".addItem, #addItem .btnBack", function () {
                         </div>
                     </div>
                 </label>
+				<label class="form-selectgroup-item flex-fill">
+                    <input type="radio" name="item" value="soal berbobot" class="form-selectgroup-input">
+                    <div class="form-selectgroup-label d-flex align-items-center p-3">
+                        <div class="me-3">
+                            <span class="form-selectgroup-check"></span>
+                        </div>
+                        <div>
+                            Tambah Soal (Berbobot)
+                        </div>
+                    </div>
+                </label>
                 <label class="form-selectgroup-item flex-fill">
                     <input type="radio" name="item" value="petunjuk" class="form-selectgroup-input">
                     <div class="form-selectgroup-label d-flex align-items-center p-3">
@@ -91,24 +102,11 @@ $(document).on("click", "#addItem .btnNext", function () {
 		if (item == "soal") {
 			let id_sub = $(form + " input[name='id_sub']").val();
 
-			count_choice = 4;
+			count_choice = 5;
+			// let reading = textReading(id_sub, "", "");
 
-			let pembahasan = `
-                <div class="mb-3">
-                    <label class="mb-3">Pembahasan Jika Jawaban Benar</label>
-                    <textarea name="pembahasan_benar" class='ckeditor' id='form-text-benar'></textarea>
-                </div>
-                <div class="mb-3">
-                    <label class="mb-3">Pembahasan Jika Jawaban Salah</label>
-                    <textarea name="pembahasan_salah" class='ckeditor' id='form-text-salah'></textarea>
-                </div>
-            `;
-
-			if (tipe_soal == "Tampil Satuan") {
-				let reading = textReading(id_sub, "", "");
-
-				html +=
-					`
+			html +=
+				`
                     <div class="mb-3">
                         <textarea name="soal" class='ckeditor' id='form-text'>{no}</textarea>
                     </div>
@@ -129,14 +127,18 @@ $(document).on("click", "#addItem .btnNext", function () {
                             <textarea name="pilihan[]" class="form-control" data-bs-toggle="autosize" placeholder="Type something…"></textarea>
                             <label for="" class="col-form-label">Pilihan D</label>
                         </div>
+                        <div class="form-floating mb-3">
+                            <textarea name="pilihan[]" class="form-control" data-bs-toggle="autosize" placeholder="Type something…"></textarea>
+                            <label for="" class="col-form-label">Pilihan E</label>
+                        </div>
                     </div>
                     <div class="d-flex justify-content-center mb-3">
                         <span>
                             <button type="button" class="btn btn-sm btn-danger btnRemoveForm me-3">
                                 <svg width="24" height="24">
                                     <use xlink:href="` +
-					url_base +
-					`assets/tabler-icons-1.39.1/tabler-sprite.svg#tabler-circle-minus" />
+				url_base +
+				`assets/tabler-icons-1.39.1/tabler-sprite.svg#tabler-circle-minus" />
                                 </svg>
                             </button>
                         </span>
@@ -144,8 +146,8 @@ $(document).on("click", "#addItem .btnNext", function () {
                             <button type="button" class="btn btn-sm btn-success btnAddForm">
                                 <svg width="24" height="24">
                                     <use xlink:href="` +
-					url_base +
-					`assets/tabler-icons-1.39.1/tabler-sprite.svg#tabler-circle-plus" />
+				url_base +
+				`assets/tabler-icons-1.39.1/tabler-sprite.svg#tabler-circle-plus" />
                                 </svg>
                             </button>
                         </span>
@@ -157,85 +159,7 @@ $(document).on("click", "#addItem .btnNext", function () {
                             <option value="Pilihan B">Pilihan B</option>
                             <option value="Pilihan C">Pilihan C</option>
                             <option value="Pilihan D">Pilihan D</option>
-                        </select>
-                        <label for="">Pilih Jawaban</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <textarea name="jawaban" class="form-control required" data-bs-toggle="autosize" placeholder="Type something…" readonly></textarea>
-                        <label for="" class="col-form-label">Jawaban</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="text" name="waktu_soal" class="form-control">
-                        <label for="" class="col-form-label">Waktu Soal (detik)</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <select name="penulisan" class="form-control required">
-                            <option value="">Pilih Arah</option>
-                            <option value="LTR">LTR</option>
-                            <option value="RTL">RTL</option>
-                        </select>
-                        <label for="">Arah Penulisan</label>
-                    </div>
-                    ` +
-					reading +
-					`
-                    ` +
-					pembahasan +
-					`
-                `;
-			} else if (tipe_soal == "Tampil Keseluruhan") {
-				let reading = textReading(id_sub, "", "");
-
-				html +=
-					`
-                    <div class="mb-3">
-                        <textarea name="soal" class='ckeditor' id='form-text'>{no}</textarea>
-                    </div>
-                    <div class="choice">
-                        <div class="form-floating mb-3">
-                            <textarea name="pilihan[]" class="form-control" data-bs-toggle="autosize" placeholder="Type something…"></textarea>
-                            <label for="" class="col-form-label">Pilihan A</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <textarea name="pilihan[]" class="form-control" data-bs-toggle="autosize" placeholder="Type something…"></textarea>
-                            <label for="" class="col-form-label">Pilihan B</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <textarea name="pilihan[]" class="form-control" data-bs-toggle="autosize" placeholder="Type something…"></textarea>
-                            <label for="" class="col-form-label">Pilihan C</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <textarea name="pilihan[]" class="form-control" data-bs-toggle="autosize" placeholder="Type something…"></textarea>
-                            <label for="" class="col-form-label">Pilihan D</label>
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-center mb-3">
-                        <span>
-                            <button type="button" class="btn btn-sm btn-danger btnRemoveForm me-3">
-                                <svg width="24" height="24">
-                                    <use xlink:href="` +
-					url_base +
-					`assets/tabler-icons-1.39.1/tabler-sprite.svg#tabler-circle-minus" />
-                                </svg>
-                            </button>
-                        </span>
-                        <span>
-                            <button type="button" class="btn btn-sm btn-success btnAddForm">
-                                <svg width="24" height="24">
-                                    <use xlink:href="` +
-					url_base +
-					`assets/tabler-icons-1.39.1/tabler-sprite.svg#tabler-circle-plus" />
-                                </svg>
-                            </button>
-                        </span>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <select name="choice_jawaban" class="form-control required">
-                            <option value="">Pilih Jawaban</option>
-                            <option value="Pilihan A">Pilihan A</option>
-                            <option value="Pilihan B">Pilihan B</option>
-                            <option value="Pilihan C">Pilihan C</option>
-                            <option value="Pilihan D">Pilihan D</option>
+							<option value="Pilihan E">Pilihan E</option>
                         </select>
                         <label for="">Pilih Jawaban</label>
                     </div>
@@ -256,13 +180,103 @@ $(document).on("click", "#addItem .btnNext", function () {
                         <label for="">Arah Penulisan</label>
                     </div>
                     ` +
-					reading +
-					`
-                    ` +
-					pembahasan +
-					`
+				// pembahasan +
+				`
                 `;
-			}
+			// }
+
+			$(form + " .modal-body").html(html);
+			CKEDITOR.replace("form-text");
+
+			// pembahasan
+			CKEDITOR.replace("form-text-benar");
+			CKEDITOR.replace("form-text-salah");
+		} else if (item == "soal berbobot") {
+			let id_sub = $(form + " input[name='id_sub']").val();
+
+			count_choice = 5;
+
+			html +=
+				`
+				<div class="mb-3">
+					<textarea name="soal" class='ckeditor' id='form-text'>{no}</textarea>
+				</div>
+				<div class="choice">
+					<div class="form-floating">
+						<textarea name="pilihan[]" class="form-control" data-bs-toggle="autosize" placeholder="Type something…"></textarea>
+						<label for="" class="col-form-label">Pilihan A</label>
+					</div>
+					<div class="form-floating mb-3">
+						<input type="text" name="bobot[]" class="form-control">
+                        <label for="" class="col-form-label">Bobot A</label>
+					</div>
+
+					<div class="form-floating">
+						<textarea name="pilihan[]" class="form-control" data-bs-toggle="autosize" placeholder="Type something…"></textarea>
+						<label for="" class="col-form-label">Pilihan B</label>
+					</div>
+					<div class="form-floating mb-3">
+						<input type="text" name="bobot[]" class="form-control">
+                        <label for="" class="col-form-label">Bobot B</label>
+					</div>
+
+					<div class="form-floating">
+						<textarea name="pilihan[]" class="form-control" data-bs-toggle="autosize" placeholder="Type something…"></textarea>
+						<label for="" class="col-form-label">Pilihan C</label>
+					</div>
+					<div class="form-floating mb-3">
+						<input type="text" name="bobot[]" class="form-control">
+                        <label for="" class="col-form-label">Bobot C</label>
+					</div>
+
+					<div class="form-floating">
+						<textarea name="pilihan[]" class="form-control" data-bs-toggle="autosize" placeholder="Type something…"></textarea>
+						<label for="" class="col-form-label">Pilihan D</label>
+					</div>
+					<div class="form-floating mb-3">
+						<input type="text" name="bobot[]" class="form-control">
+                        <label for="" class="col-form-label">Bobot D</label>
+					</div>
+
+					<div class="form-floating">
+						<textarea name="pilihan[]" class="form-control" data-bs-toggle="autosize" placeholder="Type something…"></textarea>
+						<label for="" class="col-form-label">Pilihan E</label>
+					</div>
+					<div class="form-floating mb-3">
+						<input type="text" name="bobot[]" class="form-control">
+                        <label for="" class="col-form-label">Bobot E</label>
+					</div>
+
+				</div>
+				<div class="d-flex justify-content-center mb-3">
+					<span>
+						<button type="button" class="btn btn-sm btn-danger btnRemoveFormBobot me-3">
+							<svg width="24" height="24">
+								<use xlink:href="` +
+				url_base +
+				`assets/tabler-icons-1.39.1/tabler-sprite.svg#tabler-circle-minus" />
+							</svg>
+						</button>
+					</span>
+					<span>
+						<button type="button" class="btn btn-sm btn-success btnAddFormBobot">
+							<svg width="24" height="24">
+								<use xlink:href="` +
+				url_base +
+				`assets/tabler-icons-1.39.1/tabler-sprite.svg#tabler-circle-plus" />
+							</svg>
+						</button>
+					</span>
+				</div>
+				<div class="form-floating mb-3">
+					<select name="penulisan" class="form-control required">
+						<option value="">Pilih Arah</option>
+						<option value="LTR">LTR</option>
+						<option value="RTL">RTL</option>
+					</select>
+					<label for="">Arah Penulisan</label>
+				</div>
+			`;
 
 			$(form + " .modal-body").html(html);
 			CKEDITOR.replace("form-text");
@@ -271,59 +285,23 @@ $(document).on("click", "#addItem .btnNext", function () {
 			CKEDITOR.replace("form-text-benar");
 			CKEDITOR.replace("form-text-salah");
 		} else if (item == "petunjuk") {
-			if (tipe_soal == "Tampil Satuan") {
-				html += `
-                    <div class="mb-3">
-                        <textarea name="soal" class='ckeditor' id='form-text'></textarea>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <select name="tampil" class="form-control required">
-                            <option value="">Pilih</option>
-                            <option value="Ya">Ya</option>
-                            <option value="Tidak">Tidak</option>
-                        </select>
-                        <label for="">Tampilkan Item Ini?</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="text" name="waktu_soal" class="form-control">
-                        <label for="" class="col-form-label">Waktu Soal (detik)</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <select name="penulisan" class="form-control required">
-                            <option value="">Pilih Arah</option>
-                            <option value="LTR">LTR</option>
-                            <option value="RTL">RTL</option>
-                        </select>
-                        <label for="">Arah Penulisan</label>
-                    </div>
-                `;
-			} else if (tipe_soal == "Tampil Keseluruhan") {
-				html += `
-                    <div class="mb-3">
-                        <textarea name="soal" class='ckeditor' id='form-text'></textarea>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <select name="tampil" class="form-control required">
-                            <option value="">Pilih</option>
-                            <option value="Ya">Ya</option>
-                            <option value="Tidak">Tidak</option>
-                        </select>
-                        <label for="">Tampilkan Item Ini?</label>
-                    </div>
-                    <div class="form-floating mb-3" style="display:none">
-                        <input type="text" name="waktu_soal" class="form-control">
-                        <label for="" class="col-form-label">Waktu Soal (detik)</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <select name="penulisan" class="form-control required">
-                            <option value="">Pilih Arah</option>
-                            <option value="LTR">LTR</option>
-                            <option value="RTL">RTL</option>
-                        </select>
-                        <label for="">Arah Penulisan</label>
-                    </div>
-                `;
-			}
+			html += `
+				<div class="mb-3">
+					<textarea name="soal" class='ckeditor' id='form-text'></textarea>
+				</div>
+				<div class="form-floating mb-3" style="display:none">
+					<input type="text" name="waktu_soal" class="form-control">
+					<label for="" class="col-form-label">Waktu Soal (detik)</label>
+				</div>
+				<div class="form-floating mb-3">
+					<select name="penulisan" class="form-control required">
+						<option value="">Pilih Arah</option>
+						<option value="LTR">LTR</option>
+						<option value="RTL">RTL</option>
+					</select>
+					<label for="">Arah Penulisan</label>
+				</div>
+			`;
 
 			$(form + " .modal-body").html(html);
 			CKEDITOR.replace("form-text");
@@ -449,6 +427,93 @@ $(document).on("click", "#editItem .btnAddForm", function () {
 	);
 });
 
+// soal berbobot
+$(document).on("click", "#addItem .btnRemoveFormBobot", function () {
+	if (count_choice > 2) {
+		count_choice--;
+		$("#addItem .choice").children().last().remove();
+
+		$("#addItem [name='choice_jawaban']").children().last().remove();
+	} else {
+		Swal.fire({
+			icon: "error",
+			title: "Oopss...",
+			text: "Pilihan minimal adalah 2",
+		});
+	}
+});
+
+$(document).on("click", "#addItem .btnAddFormBobot", function () {
+	count_choice++;
+
+	i = 64 + count_choice;
+	html =
+		`
+            <div class="form-floating">
+                <textarea name="pilihan[]" class="form-control" data-bs-toggle="autosize" placeholder="Type something…"></textarea>
+                <label for="" class="col-form-label">Pilihan ` +
+		String.fromCharCode(i) +
+		`</label>
+            </div>
+			<div class="form-floating mb-3">
+				<input type="text" name="bobot[]" class="form-control">
+				<label for="" class="col-form-label">Bobot C</label>
+			</div>
+			`;
+	$("#addItem .choice").append(html);
+	$("#addItem [name='choice_jawaban']").append(
+		`<option value='Pilihan ` +
+			String.fromCharCode(i) +
+			`'>Pilihan ` +
+			String.fromCharCode(i) +
+			`</option>`
+	);
+});
+
+$(document).on("click", "#editItem .btnRemoveFormBobot", function () {
+	if (count_choice > 2) {
+		count_choice--;
+		$("#editItem .choice").children().last().remove();
+
+		$("#editItem [name='choice_jawaban']").children().last().remove();
+	} else {
+		Swal.fire({
+			icon: "error",
+			title: "Oopss...",
+			text: "Pilihan minimal adalah 2",
+		});
+	}
+});
+
+$(document).on("click", "#editItem .btnAddFormBobot", function () {
+	count_choice++;
+
+	i = 64 + count_choice;
+	html =
+		`
+            <div class="form-floating">
+                <textarea name="pilihan[]" class="form-control" data-bs-toggle="autosize" placeholder="Type something…"></textarea>
+                <label for="" class="col-form-label">Pilihan ` +
+		String.fromCharCode(i) +
+		`</label>
+            </div>
+			<div class="form-floating mb-3">
+				<input type="text" name="bobot[]" class="form-control">
+				<label for="" class="col-form-label">Bobot ` +
+		String.fromCharCode(i) +
+		`</label>
+			</div>
+			`;
+	$("#editItem .choice").append(html);
+	$("#editItem [name='choice_jawaban']").append(
+		`<option value='Pilihan ` +
+			String.fromCharCode(i) +
+			`'>Pilihan ` +
+			String.fromCharCode(i) +
+			`</option>`
+	);
+});
+
 $(document).on("change keyup", "[name='pilihan[]']", function () {
 	$("[name='jawaban']").val("");
 	$("[name='choice_jawaban']").val("");
@@ -484,12 +549,6 @@ $(document).on("click", "#addItem .btnAdd", function () {
 				let tipe_soal = $(form + " input[name='tipe_soal']").val();
 				let soal = CKEDITOR.instances["form-text"].getData();
 				soal = soal.replace(/"/g, "'");
-
-				// pembahasan
-				let pembahasan_benar = CKEDITOR.instances["form-text-benar"].getData();
-				pembahasan_benar = pembahasan_benar.replace(/"/g, "'");
-				let pembahasan_salah = CKEDITOR.instances["form-text-salah"].getData();
-				pembahasan_salah = pembahasan_salah.replace(/"/g, "'");
 
 				let pilihan = "";
 
@@ -536,11 +595,117 @@ $(document).on("click", "#addItem .btnAdd", function () {
 						pilihan +
 						`],"jawaban":"` +
 						jawaban +
-						`","pembahasan_benar":"` +
-						pembahasan_benar +
-						`","pembahasan_salah":"` +
-						pembahasan_salah +
 						`"}`;
+
+					let data = {
+						id_sub: id_sub,
+						tipe_soal: tipe_soal,
+						item: item,
+						data_soal: data_soal,
+						penulisan: penulisan,
+						id_text: id_text,
+						waktu_soal: waktu_soal,
+					};
+					let result = ajax(url_base + "subsoal/add_item_soal", "POST", data);
+					if (result == 1) {
+						Swal.fire({
+							position: "center",
+							icon: "success",
+							text: "Berhasil menambahkan item soal",
+							showConfirmButton: false,
+							timer: 1500,
+						});
+
+						$("#addItem").modal("hide");
+						load_item(id);
+					} else {
+						Swal.fire({
+							position: "center",
+							icon: "error",
+							text: "Gagal menambahkan item soal, silahkan coba refresh page terlebih dahulu",
+							showConfirmButton: false,
+							timer: 1500,
+						});
+					}
+				}
+			}
+		});
+	} else if (item == "soal berbobot") {
+		Swal.fire({
+			icon: "question",
+			text: "Yakin akan menambahkan soal baru?",
+			showCloseButton: true,
+			showCancelButton: true,
+			confirmButtonText: "Ya",
+			cancelButtonText: "Tidak",
+		}).then(function (result) {
+			if (result.value) {
+				let id_sub = $(form + " input[name='id_sub']").val();
+				let tipe_soal = $(form + " input[name='tipe_soal']").val();
+				let soal = CKEDITOR.instances["form-text"].getData();
+				soal = soal.replace(/"/g, "'");
+
+				let pilihan = "";
+
+				$(form + " [name='pilihan[]']").each(function () {
+					if ($(this).val() != "") {
+						// tambahan
+						pilihan_jawaban = $(this).val().replace(/"/g, "&quot;");
+						pilihan += `"` + pilihan_jawaban + `",`;
+						// tambahan
+						// pilihan += `"`+$(this).val()+`",`;
+					}
+				});
+
+				// remove last character
+				pilihan = pilihan.slice(0, -1);
+
+				let bobot = "";
+
+				$(form + " [name='bobot[]']").each(function () {
+					if ($(this).val() != "") {
+						// tambahan
+						bobot_jawaban = $(this).val().replace(/"/g, "&quot;");
+						bobot += `"` + bobot_jawaban + `",`;
+						// tambahan
+						// bobot += `"`+$(this).val()+`",`;
+					}
+				});
+
+				// remove last character
+				bobot = bobot.slice(0, -1);
+
+				let jawaban = $(form + " textarea[name='jawaban']").val();
+				// tambahan
+				// jawaban = jawaban.replace(/"/g, "&quot;");
+				// tambahan
+				let penulisan = $(form + " select[name='penulisan']").val();
+				let id_text = $(form + " select[name='id_text']").val();
+				let waktu_soal = $(form + " [name='waktu_soal']").val();
+
+				let eror = required(form);
+
+				if (soal == "") soal = "";
+
+				if (eror == 1) {
+					Swal.fire({
+						icon: "error",
+						title: "Oops...",
+						text: "lengkapi isi form terlebih dahulu",
+					});
+				} else {
+					// tanpa pembahasan
+					// let data_soal = `{"soal":"`+soal+`","pilihan":[`+pilihan+`],"jawaban":"`+jawaban+`"}`;
+
+					// pembahasan
+					let data_soal =
+						`{"soal":"` +
+						soal +
+						`","pilihan":[` +
+						pilihan +
+						`],"bobot":[` +
+						bobot +
+						`]}`;
 
 					let data = {
 						id_sub: id_sub,
@@ -909,139 +1074,141 @@ $(document).on("click", ".editItem", function () {
 			`</textarea>
             </div>`;
 
-		if (tipe_soal == "Tampil Satuan") {
-			let reading = textReading(id_sub, result.id_text);
+		html =
+			`
+			<div class="mb-3">
+				<textarea name="soal" class='ckeditor' id='form-text-edit'>` +
+			result.soal +
+			`</textarea>
+			</div>
+			<div class="choice">
+				` +
+			pilihan +
+			`
+			</div>
+			<div class="d-flex justify-content-center mb-3">
+				<span>
+					<button type="button" class="btn btn-sm btn-danger btnRemoveForm me-3">
+						<svg width="24" height="24">
+							<use xlink:href="` +
+			url_base +
+			`assets/tabler-icons-1.39.1/tabler-sprite.svg#tabler-circle-minus" />
+						</svg>
+					</button>
+				</span>
+				<span>
+					<button type="button" class="btn btn-sm btn-success btnAddForm">
+						<svg width="24" height="24">
+							<use xlink:href="` +
+			url_base +
+			`assets/tabler-icons-1.39.1/tabler-sprite.svg#tabler-circle-plus" />
+						</svg>
+					</button>
+				</span>
+			</div>
+			<div class="form-floating mb-3">
+				<select name="choice_jawaban" class="form-control required">
+					<option value="">Pilih Jawaban</option>
+				</select>
+				<label for="">Pilih Jawaban</label>
+			</div>
+			<div class="form-floating mb-3">
+				<textarea name="jawaban" class="form-control required" data-bs-toggle="autosize" placeholder="Type something…" readonly>` +
+			result.jawaban +
+			`</textarea>
+				<label for="" class="col-form-label">Jawaban</label>
+			</div>
+			<div class="form-floating mb-3" style="display:none">
+				<input type="text" name="waktu_soal" class="form-control" value="` +
+			result.waktu_soal +
+			`">
+				<label for="" class="col-form-label">Waktu Soal (detik)</label>
+			</div>
+			<div class="form-floating mb-3">
+				<select name="penulisan" class="form-control required">
+					<option value="">Pilih Arah</option>
+					<option value="LTR" ${ltr}>LTR</option>
+					<option value="RTL" ${rtl}>RTL</option>
+				</select>
+				<label for="">Arah Penulisan</label>
+			</div>
+			`;
 
-			html =
-				`
-                <div class="mb-3">
-                    <textarea name="soal" class='ckeditor' id='form-text-edit'>` +
-				result.soal +
-				`</textarea>
-                </div>
-                <div class="choice">
-                    ` +
-				pilihan +
-				`
-                </div>
-                <div class="d-flex justify-content-center mb-3">
-                    <span>
-                        <button type="button" class="btn btn-sm btn-danger btnRemoveForm me-3">
-                            <svg width="24" height="24">
-                                <use xlink:href="` +
-				url_base +
-				`assets/tabler-icons-1.39.1/tabler-sprite.svg#tabler-circle-minus" />
-                            </svg>
-                        </button>
-                    </span>
-                    <span>
-                        <button type="button" class="btn btn-sm btn-success btnAddForm">
-                            <svg width="24" height="24">
-                                <use xlink:href="` +
-				url_base +
-				`assets/tabler-icons-1.39.1/tabler-sprite.svg#tabler-circle-plus" />
-                            </svg>
-                        </button>
-                    </span>
-                </div>
-                <div class="form-floating mb-3">
-                    <select name="choice_jawaban" class="form-control required">
-                        <option value="">Pilih Jawaban</option>
-                    </select>
-                    <label for="">Pilih Jawaban</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <textarea name="jawaban" class="form-control required" data-bs-toggle="autosize" placeholder="Type something…" readonly>` +
-				result.jawaban +
-				`</textarea>
-                    <label for="" class="col-form-label">Jawaban</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="text" name="waktu_soal" class="form-control" value="` +
-				result.waktu_soal +
-				`">
-                    <label for="" class="col-form-label">Waktu Soal (detik)</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <select name="penulisan" class="form-control required">
-                        <option value="">Pilih Arah</option>
-                        <option value="LTR" ${ltr}>LTR</option>
-                        <option value="RTL" ${rtl}>RTL</option>
-                    </select>
-                    <label for="">Arah Penulisan</label>
-                </div>
-                ` +
-				reading +
-				`` +
-				pembahasan +
-				``;
-		} else if (tipe_soal == "Tampil Keseluruhan") {
-			let reading = textReading(id_sub, result.id_text);
+		$(form + " .modal-body").html(html);
+		$(form + " [name='choice_jawaban']").html(answer_choice);
+		CKEDITOR.replace("form-text-edit");
+		CKEDITOR.replace("form-text-edit-benar");
+		CKEDITOR.replace("form-text-edit-salah");
+	} else if (result.item == "soal berbobot") {
+		count_choice = result.pilihan.length;
 
-			html =
+		let answer_choice = `<option value="">Pilih Jawaban</option>`;
+		let pilihan = "";
+
+		result.pilihan.forEach((choice, index) => {
+			i = 65 + index;
+			pilihan +=
 				`
-                <div class="mb-3">
-                    <textarea name="soal" class='ckeditor' id='form-text-edit'>` +
-				result.soal +
+            <div class="form-floating">
+                <textarea name="pilihan[]" class="form-control required" data-bs-toggle="autosize" placeholder="Type something…">` +
+				choice +
 				`</textarea>
-                </div>
-                <div class="choice">
-                    ` +
-				pilihan +
-				`
-                </div>
-                <div class="d-flex justify-content-center mb-3">
-                    <span>
-                        <button type="button" class="btn btn-sm btn-danger btnRemoveForm me-3">
-                            <svg width="24" height="24">
-                                <use xlink:href="` +
-				url_base +
-				`assets/tabler-icons-1.39.1/tabler-sprite.svg#tabler-circle-minus" />
-                            </svg>
-                        </button>
-                    </span>
-                    <span>
-                        <button type="button" class="btn btn-sm btn-success btnAddForm">
-                            <svg width="24" height="24">
-                                <use xlink:href="` +
-				url_base +
-				`assets/tabler-icons-1.39.1/tabler-sprite.svg#tabler-circle-plus" />
-                            </svg>
-                        </button>
-                    </span>
-                </div>
-                <div class="form-floating mb-3">
-                    <select name="choice_jawaban" class="form-control required">
-                        <option value="">Pilih Jawaban</option>
-                    </select>
-                    <label for="">Pilih Jawaban</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <textarea name="jawaban" class="form-control required" data-bs-toggle="autosize" placeholder="Type something…" readonly>` +
-				result.jawaban +
-				`</textarea>
-                    <label for="" class="col-form-label">Jawaban</label>
-                </div>
-                <div class="form-floating mb-3" style="display:none">
-                    <input type="text" name="waktu_soal" class="form-control" value="` +
-				result.waktu_soal +
-				`">
-                    <label for="" class="col-form-label">Waktu Soal (detik)</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <select name="penulisan" class="form-control required">
-                        <option value="">Pilih Arah</option>
-                        <option value="LTR" ${ltr}>LTR</option>
-                        <option value="RTL" ${rtl}>RTL</option>
-                    </select>
-                    <label for="">Arah Penulisan</label>
-                </div>
-                ` +
-				reading +
-				`` +
-				pembahasan +
-				``;
-		}
+                <label for="" class="col-form-label">Pilihan ` +
+				String.fromCharCode(i) +
+				`</label>
+            </div>
+			<div class="form-floating mb-3">
+				<input type="text" name="bobot[]" class="form-control" value="${result.bobot[index]}">
+				<label for="" class="col-form-label">Bobot ` +
+				String.fromCharCode(i) +
+				`</label>
+			</div>
+			`;
+		});
+
+		let id_sub = $("#addItem [name='id_sub']").val();
+
+		html =
+			`
+			<div class="mb-3">
+				<textarea name="soal" class='ckeditor' id='form-text-edit'>` +
+			result.soal +
+			`</textarea>
+			</div>
+			<div class="choice">
+				` +
+			pilihan +
+			`
+			</div>
+			<div class="d-flex justify-content-center mb-3">
+				<span>
+					<button type="button" class="btn btn-sm btn-danger btnRemoveFormBobot me-3">
+						<svg width="24" height="24">
+							<use xlink:href="` +
+			url_base +
+			`assets/tabler-icons-1.39.1/tabler-sprite.svg#tabler-circle-minus" />
+						</svg>
+					</button>
+				</span>
+				<span>
+					<button type="button" class="btn btn-sm btn-success btnAddFormBobot">
+						<svg width="24" height="24">
+							<use xlink:href="` +
+			url_base +
+			`assets/tabler-icons-1.39.1/tabler-sprite.svg#tabler-circle-plus" />
+						</svg>
+					</button>
+				</span>
+			</div>
+			<div class="form-floating mb-3">
+				<select name="penulisan" class="form-control required">
+					<option value="">Pilih Arah</option>
+					<option value="LTR" ${ltr}>LTR</option>
+					<option value="RTL" ${rtl}>RTL</option>
+				</select>
+				<label for="">Arah Penulisan</label>
+			</div>
+			`;
 
 		$(form + " .modal-body").html(html);
 		$(form + " [name='choice_jawaban']").html(answer_choice);
@@ -1058,76 +1225,17 @@ $(document).on("click", ".editItem", function () {
 			ltr = "selected";
 		}
 
-		let ya = "";
-		let tidak = "";
-
-		if (result.tampil == "Ya") {
-			ya = "selected";
-		}
-
-		if (result.tampil == "Tidak") {
-			tidak = "selected";
-		}
-
-		if (tipe_soal == "Tampil Satuan") {
-			html =
-				`
+		html =
+			`
                 <div class="mb-3">
                     <textarea name="soal" class='ckeditor' id='form-text-edit'>` +
-				result.data +
-				`</textarea>
-                </div>
-                <div class="form-floating mb-3">
-                    <select name="tampil" class="form-control required">
-                        <option value="">Pilih</option>
-                        <option value="Ya" ` +
-				ya +
-				`>Ya</option>
-                        <option value="Tidak" ` +
-				tidak +
-				`>Tidak</option>
-                    </select>
-                    <label for="">Tampilkan Item Ini?</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="text" name="waktu_soal" class="form-control" value="` +
-				result.waktu_soal +
-				`">
-                    <label for="" class="col-form-label">Waktu Soal (detik)</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <select name="penulisan" class="form-control required">
-                        <option value="">Pilih Arah</option>
-                        <option value="LTR" ${ltr}>LTR</option>
-                        <option value="RTL" ${rtl}>RTL</option>
-                    </select>
-                    <label for="">Arah Penulisan</label>
-                </div>
-            `;
-		} else if (tipe_soal == "Tampil Keseluruhan") {
-			html =
-				`
-                <div class="mb-3">
-                    <textarea name="soal" class='ckeditor' id='form-text-edit'>` +
-				result.data +
-				`</textarea>
-                </div>
-                <div class="form-floating mb-3">
-                    <select name="tampil" class="form-control required">
-                        <option value="">Pilih</option>
-                        <option value="Ya" ` +
-				ya +
-				`>Ya</option>
-                        <option value="Tidak" ` +
-				tidak +
-				`>Tidak</option>
-                    </select>
-                    <label for="">Tampilkan Item Ini?</label>
+			result.data +
+			`</textarea>
                 </div>
                 <div class="form-floating mb-3" style="display:none">
                     <input type="text" name="waktu_soal" class="form-control" value="` +
-				result.waktu_soal +
-				`">
+			result.waktu_soal +
+			`">
                     <label for="" class="col-form-label">Waktu Soal (detik)</label>
                 </div>
                 <div class="form-floating mb-3">
@@ -1139,7 +1247,6 @@ $(document).on("click", ".editItem", function () {
                     <label for="">Arah Penulisan</label>
                 </div>
             `;
-		}
 
 		$(form + " .modal-body").html(html);
 		CKEDITOR.replace("form-text-edit");
@@ -1226,14 +1333,6 @@ $(document).on("click", "#editItem .btnEdit", function () {
 				let soal = CKEDITOR.instances["form-text-edit"].getData();
 				soal = soal.replace(/"/g, "'");
 
-				// pembahasan
-				let pembahasan_benar =
-					CKEDITOR.instances["form-text-edit-benar"].getData();
-				pembahasan_benar = pembahasan_benar.replace(/"/g, "'");
-				let pembahasan_salah =
-					CKEDITOR.instances["form-text-edit-salah"].getData();
-				pembahasan_salah = pembahasan_salah.replace(/"/g, "'");
-
 				let pilihan = "";
 				$(form + " [name='pilihan[]']").each(function () {
 					// tambahan
@@ -1280,6 +1379,102 @@ $(document).on("click", "#editItem .btnEdit", function () {
 						`","pembahasan_salah":"` +
 						pembahasan_salah +
 						`"}`;
+					// let data_soal = soal+"###"+pilihan_a+"///"+pilihan_b+"///"+pilihan_c+"///"+pilihan_d+"###"+jawaban
+					let data = {
+						id_item: id_item,
+						data_soal: data_soal,
+						penulisan: penulisan,
+						id_text: id_text,
+						waktu_soal: waktu_soal,
+					};
+					let result = ajax(url_base + "subsoal/edit_item_soal", "POST", data);
+					if (result == 1) {
+						Swal.fire({
+							position: "center",
+							icon: "success",
+							text: "Berhasil mengubah item soal",
+							showConfirmButton: false,
+							timer: 1500,
+						});
+
+						$("#addItem").modal("hide");
+						load_item(id);
+					} else {
+						Swal.fire({
+							position: "center",
+							icon: "error",
+							text: "Gagal mengubah item soal, silahkan coba refresh page terlebih dahulu",
+							showConfirmButton: false,
+							timer: 1500,
+						});
+					}
+				}
+				// console.log(id_sub, tipe_soal, item, soal, pilihan_a, pilihan_b, pilihan_c, pilihan_d, jawaban, penulisan);
+			}
+		});
+	} else if (item == "soal berbobot") {
+		Swal.fire({
+			icon: "question",
+			text: "Yakin akan mengubah soal?",
+			showCloseButton: true,
+			showCancelButton: true,
+			confirmButtonText: "Ya",
+			cancelButtonText: "Tidak",
+		}).then(function (result) {
+			if (result.value) {
+				let id_item = $(form + " input[name='id_item']").val();
+				let soal = CKEDITOR.instances["form-text-edit"].getData();
+				soal = soal.replace(/"/g, "'");
+
+				let pilihan = "";
+				$(form + " [name='pilihan[]']").each(function () {
+					// tambahan
+					pilihan_jawaban = $(this).val().replace(/"/g, "&quot;");
+					pilihan += `"` + pilihan_jawaban + `",`;
+					// tambahan
+					// pilihan += `"`+$(this).val()+`",`;
+				});
+				// remove last character
+				pilihan = pilihan.slice(0, -1);
+
+				let bobot = "";
+				$(form + " [name='bobot[]']").each(function () {
+					// tambahan
+					bobot_jawaban = $(this).val().replace(/"/g, "&quot;");
+					bobot += `"` + bobot_jawaban + `",`;
+					// tambahan
+					// bobot += `"`+$(this).val()+`",`;
+				});
+				// remove last character
+				bobot = bobot.slice(0, -1);
+
+				let penulisan = $(form + " select[name='penulisan']").val();
+				let id_text = $(form + " select[name='id_text']").val();
+				let waktu_soal = $(form + " [name='waktu_soal']").val();
+
+				let eror = required(form);
+
+				if (soal == "") soal = "";
+
+				if (eror == 1) {
+					Swal.fire({
+						icon: "error",
+						title: "Oops...",
+						text: "lengkapi isi form terlebih dahulu",
+					});
+				} else {
+					// tanpa pembahasan
+					// let data_soal = `{"soal":"`+soal+`","pilihan":[`+pilihan+`],"jawaban":"`+jawaban+`"}`;
+
+					// pembahasan
+					let data_soal =
+						`{"soal":"` +
+						soal +
+						`","pilihan":[` +
+						pilihan +
+						`],"bobot":[` +
+						bobot +
+						`]}`;
 					// let data_soal = soal+"###"+pilihan_a+"///"+pilihan_b+"///"+pilihan_c+"///"+pilihan_d+"###"+jawaban
 					let data = {
 						id_item: id_item,

@@ -11,16 +11,16 @@
                         <input type="date" name="tgl_pembuatan" class="form form-control required">
                         <label for="">Tgl Pembuatan</label>
                     </div>
-                    <div class="form-floating mb-3">
+                    <!-- <div class="form-floating mb-3">
                         <select name="tipe_soal" class="form form-control required">
                             <option value="">Pilih Tipe Soal</option>
-                            <!-- <option value="TOEFL">TOEFL</option> -->
-                            <!-- <option value="TOAFL">TOAFL</option> -->
+                            <option value="TOEFL">TOEFL</option>
+                            <option value="TOAFL">TOAFL</option>
                             <option value="Latihan">Latihan</option>
-                            <!-- <option value="Placement Test">Placement Test</option> -->
+                            <option value="Placement Test">Placement Test</option>
                         </select>
                         <label for="">Tipe Soal</label>
-                    </div>
+                    </div> -->
                     <!-- <div class="form-floating mb-3">
                         <input type="text" name="poin" class="number form form-control" disabled>
                         <label for="">Poin Per Soal</label>
@@ -66,16 +66,16 @@
                     <input type="date" name="tgl_pembuatan" class="form form-control required">
                     <label for="">Tgl Pembuatan</label>
                 </div>
-                <div class="form-floating mb-3">
+                <!-- <div class="form-floating mb-3">
                     <select name="tipe_soal" class="form form-control required">
-                        <option value="">Pilih Tipe Soal</option>
-                        <!-- <option value="TOEFL">TOEFL</option> -->
-                        <!-- <option value="TOAFL">TOAFL</option> -->
-                        <option value="Latihan">Latihan</option>
-                        <!-- <option value="Placement Test">Placement Test</option> -->
-                    </select>
+                        <option value="">Pilih Tipe Soal</option> -->
+                <!-- <option value="TOEFL">TOEFL</option> -->
+                <!-- <option value="TOAFL">TOAFL</option> -->
+                <!-- <option value="Latihan">Latihan</option> -->
+                <!-- <option value="Placement Test">Placement Test</option> -->
+                <!-- </select>
                     <label for="">Tipe Soal</label>
-                </div>
+                </div> -->
                 <!-- <div class="form-floating mb-3">
                     <input type="text" name="poin" class="number form form-control">
                     <label for="">Poin Per Soal</label>
@@ -113,21 +113,21 @@
                     <!-- <li class="list-group-item d-flex justify-content-between">
                         Nama Sub Soal
                         <a href="javascript:void(0)" class="deleteSesi" data-id="`+dataSesi.id+`">
-                            <?= tablerIcon("trash", "me-1");?>
+                            <?= tablerIcon("trash", "me-1"); ?>
                         </a>
                     </li>
                     <li class="list-group-item d-flex justify-content-between">
                         Nama Sub Soal
                         <a href="javascript:void(0)" class="deleteSesi" data-id="`+dataSesi.id+`">
-                            <?= tablerIcon("trash", "me-1 text-danger");?>
+                            <?= tablerIcon("trash", "me-1 text-danger"); ?>
                         </a>
                     </li> -->
                 </ul>
-                
+
                 <div class="alert alert-important alert-info alert-dismissible" role="alert">
                     <div class="d-flex">
                         <div>
-                            <?= tablerIcon("info-circle", 'me-1')?>
+                            <?= tablerIcon("info-circle", 'me-1') ?>
                         </div>
                         <div>
                             Untuk menambahkan sesi soal isi form dibawah ini
@@ -140,11 +140,15 @@
                     <div class="form-floating mb-3">
                         <select name="id_sub" class="form form form-control required">
                             <option value="">Pilih Sub Soal</option>
-                            <?php foreach ($sub_soal as $data) :?>
-                                <option value="<?= $data['id_sub']?>"><?= $data['nama_sub']?></option>
-                            <?php endforeach;?>
+                            <?php foreach ($sub_soal as $data) : ?>
+                                <option value="<?= $data['id_sub'] ?>"><?= $data['nama_sub'] ?></option>
+                            <?php endforeach; ?>
                         </select>
                         <label>Sub Soal</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" name="nama_sesi" class="form form-control">
+                        <label for="">Nama Sesi</label>
                     </div>
                     <div class="form-floating mb-3">
                         <input type="text" name="waktu" class="number form form-control">
