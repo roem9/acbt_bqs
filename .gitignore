@@ -22,6 +22,7 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 /assets/img/logo.png
 /assets/qrcode/
 /assets/myimg/
+.htaccess
 
 # IDE Files
 #-------------------------
