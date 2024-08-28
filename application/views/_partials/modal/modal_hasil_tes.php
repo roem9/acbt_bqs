@@ -114,8 +114,9 @@
                     <label>Waktu Selesai</label>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Rekap</label>
-                    <textarea class="form form-control required" name="rekap_sesi" data-bs-toggle="autosize" style="overflow: hidden; overflow-wrap: break-word; resize: none; text-align: start; height: 80px;" readonly></textarea>
+                    <label class="form-label">Rekap Nilai</label>
+                    <!-- <textarea class="form form-control required" name="rekap_sesi" data-bs-toggle="autosize" style="overflow: hidden; overflow-wrap: break-word; resize: none; text-align: start; height: 80px;" readonly></textarea> -->
+                    <div class="rekap_sesi"></div>
                 </div>
                 <div class="form-floating mb-3">
                     <input type="text" name="nilai" class="form form-control required" readonly>

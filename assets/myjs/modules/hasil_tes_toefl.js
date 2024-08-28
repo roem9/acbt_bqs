@@ -6,11 +6,13 @@ $(document).on("click", ".editPeserta", function () {
 	let id = $(this).data("id");
 	let data = { id: id };
 	let result = ajax(url_base + "tes/get_peserta", "POST", data);
-	console.log(id);
+	console.log(result.rekap_sesi);
 
 	$.each(result, function (key, value) {
 		$(form + " [name='" + key + "']").val(value);
 	});
+
+	$(".rekap_sesi").html(result.rekap_sesi);
 });
 
 // edit peserta
