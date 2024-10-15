@@ -18,6 +18,7 @@
                             <option value="Tes CPNS & PPPK">Tes CPNS & PPPK</option>
                             <option value="Tes SKD TNI">Tes SKD TNI</option>
                             <option value="Tes SKD POLRI">Tes SKD POLRI</option>
+                            <option value="Tes Standard">Tes Standard</option>
                         </select>
                         <label for="">Tipe Tes</label>
                     </div>
@@ -168,6 +169,7 @@
                             <option value="Tes CPNS & PPPK">Tes CPNS & PPPK</option>
                             <option value="Tes SKD TNI">Tes SKD TNI</option>
                             <option value="Tes SKD POLRI">Tes SKD POLRI</option>
+                            <option value="Tes Standard">Tes Standard</option>
                         </select>
                         <label for="">Tipe Tes</label>
                     </div>
